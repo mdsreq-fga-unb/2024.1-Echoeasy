@@ -7,11 +7,12 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { Roles, RolesEnum } from 'src/decorators/roles.decorator';
+import { Roles } from 'src/decorators/roles.decorator';
 import { UpdateUsuarioDto } from 'src/dto/update-usuario.dto';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { RolesGuard } from 'src/guards/roles.guard';
 import { AuthService } from 'src/service/auth.service';
+import { RolesEnum } from 'src/utils/enums/roles.enum';
 import { Usuario } from '../schema/Usuario';
 import { UsuarioService } from '../service/usuario.service';
 
