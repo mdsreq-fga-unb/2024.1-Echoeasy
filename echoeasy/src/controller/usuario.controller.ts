@@ -7,13 +7,16 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { Roles, RolesEnum } from 'src/decorators/roles.decorator';
 import { UpdateUsuarioDto } from 'src/dto/update-usuario.dto';
 import { AuthGuard } from 'src/guards/auth.guard';
+import { RolesGuard } from 'src/guards/roles.guard';
 import { AuthService } from 'src/service/auth.service';
 import { Usuario } from '../schema/Usuario';
 import { UsuarioService } from '../service/usuario.service';
 
 @Controller('usuarios')
+@UseGuards(AuthGuard, RolesGuard)
 export class UsuarioController {
   constructor(
     private usuarioService: UsuarioService,
@@ -21,13 +24,12 @@ export class UsuarioController {
   ) {}
 
   @Get()
-  @UseGuards(AuthGuard)
+  @Roles(RolesEnum.ADMIN)
   async getUsuarios(): Promise<Usuario[]> {
     return this.usuarioService.findAll();
   }
 
   @Get('search')
-  @UseGuards(AuthGuard)
   async findUsuarioByEmail(
     @Query('email') email: string,
   ): Promise<Usuario | null> {
@@ -35,7 +37,6 @@ export class UsuarioController {
   }
 
   @Put()
-  @UseGuards(AuthGuard)
   async updateUsuario(
     @Req() req: any,
     @Body() body: UpdateUsuarioDto,
