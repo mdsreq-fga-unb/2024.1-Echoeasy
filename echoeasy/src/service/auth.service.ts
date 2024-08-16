@@ -7,6 +7,7 @@ import {
 } from 'firebase/auth';
 import { auth } from 'src/config/firebase';
 import { adminAuth } from 'src/config/firebase-admin';
+import { SignUpEmailDto } from 'src/dto/signup-email.dto';
 import { UpdateUsuarioDto } from 'src/dto/update-usuario.dto';
 import { UsuarioDto } from 'src/dto/UsuarioDto';
 import { UsuarioService } from './usuario.service';
@@ -15,15 +16,8 @@ import { UsuarioService } from './usuario.service';
 export class AuthService {
   constructor(private readonly usuarioService: UsuarioService) {}
 
-  async signUpWithEmail(payload: {
-    email: string;
-    password: string;
-    name: string;
-    lastname: string;
-    role: string;
-    cellphone: string;
-  }) {
-    const { email, password, name, lastname, role, cellphone } = payload;
+  async signUpWithEmail(payload: SignUpEmailDto) {
+    const { email, password, name, lastname, cellphone } = payload;
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -37,7 +31,6 @@ export class AuthService {
         email,
         lastname,
         name,
-        role,
         cellphone,
       };
 
