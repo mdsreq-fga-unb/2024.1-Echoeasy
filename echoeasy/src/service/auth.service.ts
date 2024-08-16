@@ -7,6 +7,7 @@ import {
 } from 'firebase/auth';
 import { auth } from 'src/config/firebase';
 import { adminAuth } from 'src/config/firebase-admin';
+import { GetUsuarioDto } from 'src/dto/getUsuarioDto';
 import { SignUpEmailDto } from 'src/dto/signup-email.dto';
 import { UpdateUsuarioDto } from 'src/dto/update-usuario.dto';
 import { UsuarioDto } from 'src/dto/UsuarioDto';
@@ -114,9 +115,7 @@ export class AuthService {
     return await this.usuarioService.update(user, usuarioData);
   }
 
-  async getMe(
-    token: string,
-  ): Promise<{ email: string; name: string; firebaseId: string }> {
+  async getMe(token: string): Promise<GetUsuarioDto> {
     try {
       if (!token) {
         throw new HttpException(
@@ -140,6 +139,7 @@ export class AuthService {
       return {
         email: user.email,
         name: user.name,
+        role: user.role,
         firebaseId: user.firebaseId,
       };
     } catch (error) {
