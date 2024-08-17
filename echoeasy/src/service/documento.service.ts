@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { DocumentoRepository } from 'src/repositories/documento.repository';
+import { MulterFile } from 'src/types/File';
 import { DocumentoDto } from '../dto/DocumentoDto';
 import { Documento } from '../schema/Documento';
 
@@ -9,7 +10,10 @@ export class DocumentoService {
 
   constructor(private readonly documentoRepository: DocumentoRepository) {}
 
-  async create(documentoData: DocumentoDto, file: any): Promise<Documento> {
+  async create(
+    documentoData: DocumentoDto,
+    file: MulterFile,
+  ): Promise<Documento> {
     this.logger.log('Inicializando criação de documento...');
     const verificaDocumento = await this.documentoRepository.findOne(
       documentoData.title,

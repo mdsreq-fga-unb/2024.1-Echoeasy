@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { adminStorage } from 'src/config/firebase-admin';
+import { MulterFile } from 'src/types/File';
 import { DocumentoDto } from '../dto/DocumentoDto';
 import { Documento } from '../schema/Documento';
 
@@ -12,7 +13,10 @@ export class DocumentoRepository {
     private readonly documentoModel: Model<Documento>,
   ) {}
 
-  async create(documentoData: DocumentoDto, file: any): Promise<Documento> {
+  async create(
+    documentoData: DocumentoDto,
+    file: MulterFile,
+  ): Promise<Documento> {
     const imageUrl = await this.uploadImage64(file);
     documentoData.image = imageUrl;
     const documento = new this.documentoModel(documentoData);
@@ -49,7 +53,7 @@ export class DocumentoRepository {
     return this.documentoModel.findOneAndDelete({ title }).exec();
   }
 
-  async uploadImage64(file: any): Promise<string> {
+  async uploadImage64(file: MulterFile): Promise<string> {
     const fileName = `${Date.now().toString()}_${file.originalname}`;
     const fileUpload = adminStorage.file(fileName);
 
