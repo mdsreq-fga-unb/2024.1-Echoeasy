@@ -140,6 +140,8 @@ export class AuthService {
         email: user.email,
         name: user.name,
         role: user.role,
+        lastname: user.lastname,
+        cellphone: user.cellphone,
         firebaseId: user.firebaseId,
       };
     } catch (error) {
