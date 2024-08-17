@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Documento } from '../schema/Documento';
-import { DocumentoDto } from '../dto/DocumentoDto';
 import { DocumentoRepository } from 'src/repositories/documento.repository';
+import { DocumentoDto } from '../dto/DocumentoDto';
+import { Documento } from '../schema/Documento';
 
 @Injectable()
 export class DocumentoService {
@@ -9,7 +9,7 @@ export class DocumentoService {
 
   constructor(private readonly documentoRepository: DocumentoRepository) {}
 
-  async create(documentoData: DocumentoDto): Promise<Documento> {
+  async create(documentoData: DocumentoDto, file: any): Promise<Documento> {
     this.logger.log('Inicializando criação de documento...');
     const verificaDocumento = await this.documentoRepository.findOne(
       documentoData.title,
@@ -18,7 +18,10 @@ export class DocumentoService {
       this.logger.error('Insira um novo nome de documento!');
       throw new Error('Documento já existe!');
     }
-    const documento = await this.documentoRepository.create(documentoData);
+    const documento = await this.documentoRepository.create(
+      documentoData,
+      file,
+    );
     this.logger.log('Finalizando criação de documento...');
     return documento;
   }

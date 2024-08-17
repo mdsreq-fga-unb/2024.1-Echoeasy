@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Documento } from '../schema/Documento';
-import { DocumentoDto } from '../dto/DocumentoDto';
 import { adminStorage } from 'src/config/firebase-admin';
+import { DocumentoDto } from '../dto/DocumentoDto';
+import { Documento } from '../schema/Documento';
 
 @Injectable()
 export class DocumentoRepository {
@@ -12,10 +12,9 @@ export class DocumentoRepository {
     private readonly documentoModel: Model<Documento>,
   ) {}
 
-  async create(documentoData: DocumentoDto): Promise<Documento> {
-    this.uploadImage64(documentoData.image).then((url) => {
-      documento.image = url;
-    });
+  async create(documentoData: DocumentoDto, file: any): Promise<Documento> {
+    const imageUrl = await this.uploadImage64(file);
+    documentoData.image = imageUrl;
     const documento = new this.documentoModel(documentoData);
 
     return documento.save();
@@ -50,21 +49,34 @@ export class DocumentoRepository {
     return this.documentoModel.findOneAndDelete({ title }).exec();
   }
 
-  async uploadImage64(image: string): Promise<string> {
-    const base64Data = image.replace(/^data:image\/\w+;base64,/, '');
-    const buffer = Buffer.from(base64Data, 'base64');
+  async uploadImage64(file: any): Promise<string> {
+    const fileName = `${Date.now().toString()}_${file.originalname}`;
+    const fileUpload = adminStorage.file(fileName);
 
-    const fileName = Date.now().toString();
-    const fileRef = adminStorage.file(fileName);
-
-    await fileRef.save(buffer, {
+    const stream = fileUpload.createWriteStream({
       metadata: {
-        contentType: 'image/png',
+        contentType: file.mimetype,
       },
-      public: true,
     });
 
-    const fileUrl = `https://storage.googleapis.com/${adminStorage.name}/${fileName}`;
-    return fileUrl;
+    return new Promise((resolve, reject) => {
+      stream.on('error', (error) => {
+        reject(error);
+      });
+
+      stream.on('finish', async () => {
+        try {
+          const url = await fileUpload.getSignedUrl({
+            action: 'read',
+            expires: '03-09-2491',
+          });
+          resolve(url[0]);
+        } catch (error) {
+          reject(error);
+        }
+      });
+
+      stream.end(file.buffer);
+    });
   }
 }
