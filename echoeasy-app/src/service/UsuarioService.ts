@@ -10,6 +10,10 @@ export class UsuarioService extends ApiService {
     return this.post("/auth/signin/email", usuarioData);
   }
 
+  async getMe(token: string) {
+    return this.get("/auth/me", token);
+  }
+
   async findAll() {
     return this.get("");
   }

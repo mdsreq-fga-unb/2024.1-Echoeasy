@@ -8,6 +8,8 @@ import CustomButton from "../../components/CustomButton";
 import FormField from "../../components/FormField";
 import { UsuarioService } from "../../src/service/UsuarioService";
 import { SignInPayload } from "../../src/types/User";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useGlobalContext } from "../../src/context/GlobalProvider";
 
 const signInSchema = yup.object().shape({
   email: yup.string().email("E-mail inválido").required("E-mail é obrigatório"),
@@ -18,6 +20,7 @@ const SignIn: React.FC = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const usuarioService = new UsuarioService();
+  const { setToken, setIsLogged, token } = useGlobalContext();
 
   const handleSignIn = async (
     values: SignInPayload,
@@ -25,14 +28,21 @@ const SignIn: React.FC = () => {
   ) => {
     try {
       const response = await usuarioService.login(values);
+      const token = response.data?.stsTokenManager?.accessToken;
 
-      console.log(response.data);
+      if (!token) {
+        throw new Error("Token de autenticação não encontrado");
+      }
 
+      await AsyncStorage.setItem("authToken", token);
+      setToken(token)
+      setIsLogged(true)
       setMessage("Usuário logado com sucesso");
-      router.replace("/algorithms");
+      router.replace("/manuals");
+
     } catch (error: any) {
       console.log(error);
-      setError(error.response.data.message);
+      setError(error.response?.data?.message);
     } finally {
       setSubmitting(false);
     }

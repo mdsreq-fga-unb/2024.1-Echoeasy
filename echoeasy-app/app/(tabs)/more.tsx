@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Button } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useGlobalContext } from '../../src/context/GlobalProvider';
 
 const More: React.FC = () => {
+  const { logout } = useGlobalContext();
   
   return (
     <SafeAreaView className="bg-[#F6F6F6] h-full">
@@ -11,6 +13,7 @@ const More: React.FC = () => {
 
 
           <Text>Mais</Text>
+          <Button title="Logout" onPress={logout} />
 
 
         </View>

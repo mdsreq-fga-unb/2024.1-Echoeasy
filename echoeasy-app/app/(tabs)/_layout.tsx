@@ -1,9 +1,14 @@
-import { StatusBar } from "expo-status-bar";
-import { Tabs } from "expo-router";
+import React from 'react';
+import { useGlobalContext } from "../../src/context/GlobalProvider";
+import { Redirect, Tabs } from "expo-router";
 import TabBarIcon from "../../components/TabBarIcon";
+import Loader from "../../components/Loader";
 
 
 const TabLayout = () => {
+  const { loading, isLogged } = useGlobalContext();
+  if (!loading && !isLogged) return <Redirect href="/sign-in" />;
+
   return (
     <>
       <Tabs
@@ -25,11 +30,11 @@ const TabLayout = () => {
             title: "Algoritmos",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon 
-                icon="analytics-outline" 
-                color={color} 
-                focused={focused} 
-                label="Algoritmos" 
+              <TabBarIcon
+                icon="analytics-outline"
+                color={color}
+                focused={focused}
+                label="Algoritmos"
               />
             ),
           }}
@@ -40,11 +45,11 @@ const TabLayout = () => {
             title: "Manuais",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon 
-                icon="document-text-outline" 
-                color={color} 
-                focused={focused} 
-                label="Manuais" 
+              <TabBarIcon
+                icon="document-text-outline"
+                color={color}
+                focused={focused}
+                label="Manuais"
               />
             ),
           }}
@@ -55,17 +60,18 @@ const TabLayout = () => {
             title: "Mais",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon 
-                icon="add-outline" 
-                color={color} 
-                focused={focused} 
-                label="Mais" 
+              <TabBarIcon
+                icon="add-outline"
+                color={color}
+                focused={focused}
+                label="Mais"
               />
             ),
           }}
         />
       </Tabs>
-      <StatusBar backgroundColor="#161622" style="light" />
+
+      <Loader isLoading={loading} />
     </>
   );
 };

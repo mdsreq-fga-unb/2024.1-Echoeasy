@@ -9,8 +9,12 @@ export class ApiService {
     return httpClient.post(url, data);
   }
 
-  get(url: string) {
-    return httpClient.get(url);
+  get(url: string, token?: string) {
+    const config = token ? {
+      headers: { Authorization: `Bearer ${token}` }
+    } : {};
+
+    return httpClient.get(url, config);
   }
 
   put(url: string, data: any) {
