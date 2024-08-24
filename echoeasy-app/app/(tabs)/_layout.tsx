@@ -1,15 +1,20 @@
 import { StatusBar } from "expo-status-bar";
 import { Tabs } from "expo-router";
-import { Text } from "react-native";
+import TabBarIcon from "../../components/TabBarIcon";
+
 
 const TabLayout = () => {
-
   return (
     <>
       <Tabs
         screenOptions={{
+          tabBarActiveTintColor: "#3CC1A9",
+          tabBarInactiveTintColor: "#333333",
           tabBarShowLabel: false,
           tabBarStyle: {
+            backgroundColor: "#FFFFFF",
+            borderTopWidth: 1,
+            borderTopColor: "#C4C4C4",
             height: 75,
           },
         }}
@@ -19,8 +24,13 @@ const TabLayout = () => {
           options={{
             title: "Algoritmos",
             headerShown: false,
-            tabBarIcon: () => (
-              <Text>Algoritmos</Text>
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon 
+                icon="analytics-outline" 
+                color={color} 
+                focused={focused} 
+                label="Algoritmos" 
+              />
             ),
           }}
         />
@@ -29,19 +39,28 @@ const TabLayout = () => {
           options={{
             title: "Manuais",
             headerShown: false,
-            tabBarIcon: () => (
-                <Text>Manuais</Text>
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon 
+                icon="document-text-outline" 
+                color={color} 
+                focused={focused} 
+                label="Manuais" 
+              />
             ),
           }}
         />
-
         <Tabs.Screen
           name="more"
           options={{
             title: "Mais",
             headerShown: false,
-            tabBarIcon: () => (
-                <Text>Mais</Text>
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon 
+                icon="add-outline" 
+                color={color} 
+                focused={focused} 
+                label="Mais" 
+              />
             ),
           }}
         />
