@@ -1,27 +1,47 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, FlatList, Image } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useGlobalContext } from '../../src/context/GlobalProvider';
+import FormField from '../../components/FormField';
+import ItemCard from '../../components/ItemCard';
+
+type Item = {
+  title: string
+  description: string
+  image: string
+};
+const data: Item[] = [{ title: "Título", description: "Descrição", image: "" }, { title: "Interpretação de Imagens", description: "2 tópicos", image: "https://ufmg.br/thumbor/ycQy_k9_9Us1_NMirT293_HVnQw=/0x0:734x491/712x474/https://ufmg.br/storage/b/5/1/8/b518ab2347d168580bd6d18c12f47b7c_15354817310865_1687263323.png" },];
+const blurhash =
+  '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
+
 
 const Manuals: React.FC = () => {
-  const { user, isLogged } = useGlobalContext();
-  
-  if (!isLogged) {
-    return (
-      <SafeAreaView className="flex-1 justify-center items-center">
-        <Text>Você precisa estar logado para acessar esta página.</Text>
-      </SafeAreaView>
-    );
-  }
-
+  const { user } = useGlobalContext();
   return (
-    <SafeAreaView className="bg-[#F6F6F6] h-full">
-      <ScrollView contentContainerStyle={{ height: '100%' }}>
-        <View className="w-full h-full flex justify-center items-center p-4">
-          <Text>Manuais</Text>
-          <Text>Bem-vindo, {user?.name} {user?.lastname}!</Text>
-        </View>
-      </ScrollView>
+    <SafeAreaView className="bg-[#F6F6F6] h-full px-4">
+
+        <Text>Bem-vindo, {user?.name} {user?.lastname}!</Text>
+        <Text className='font-interMedium text-2xl'>Manuais</Text>
+      <View className="w-full h-full flex items-center">
+        <FormField
+          // Componente provisório. É preciso criar um novo componente "searchInput"
+          label='SearchInput Provisório'
+          icon="search-outline"
+          placeholder="Pesquisar"
+        />
+        <FlatList
+          data={data}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <ItemCard
+              title={item.title}
+              description={item.description}
+              image={item.image}
+            />
+          )}
+        />
+      </View>
+
     </SafeAreaView>
   );
 };

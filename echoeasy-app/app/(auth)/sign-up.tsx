@@ -212,7 +212,7 @@ const SignUp: React.FC = () => {
                   title="Confirmar"
                   isDisabled={!isValid || isSubmitting}
                   isLoading={isSubmitting}
-                  onPressProps={handleSubmit}
+                  handlePress={handleSubmit}
                 />
 
                 {error ? (

@@ -14,7 +14,7 @@ const Welcome: React.FC = () => {
         <Link href="/sign-up" className="text-blue-500">
           SignUp
         </Link>
-        <Link href="/algorithms" className="text-blue-500">
+        <Link href="/manuals" className="text-blue-500">
           Main
         </Link>
 

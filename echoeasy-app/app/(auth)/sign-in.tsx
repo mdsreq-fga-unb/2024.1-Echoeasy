@@ -111,7 +111,7 @@ const SignIn: React.FC = () => {
                   title="Entrar"
                   isDisabled={!isValid || isSubmitting}
                   isLoading={isSubmitting}
-                  onPressProps={handleSubmit}
+                  handlePress={handleSubmit}
                 />
 
                 {error ? (
