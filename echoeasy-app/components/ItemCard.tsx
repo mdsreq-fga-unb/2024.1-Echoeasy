@@ -16,7 +16,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ title, description, image, isDisabl
       disabled={isDisabled}
       onPress={handlePress}
       activeOpacity={isDisabled ? 1 : 0.7}
-      className={`w-80 m-1 px-[10px] py-3 flex flex-row items-center justify-between rounded-xl ${isDisabled ? 'bg-[#99dcd0]' : 'bg-[#3CC1A9]'}`}
+      className={`w-full mt-1 mb-1 px-[10px] py-3 flex flex-row items-center justify-between rounded-xl ${isDisabled ? 'bg-[#99dcd0]' : 'bg-[#3CC1A9]'}`}
     >
       <View className="flex flex-row items-center flex-1 space-x-3">
         {image && (

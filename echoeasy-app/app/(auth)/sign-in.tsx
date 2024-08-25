@@ -51,7 +51,7 @@ const SignIn: React.FC = () => {
   return (
     <SafeAreaView className="bg-[#F6F6F6] h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
-        <View className="w-full h-full flex justify-center items-center p-4">
+        <View className="w-full h-full flex justify-center items-center p-6">
           <View className="flex-row justify-center items-center mb-8">
             <Text className="text-3xl font-interMedium">Echo</Text>
             <Text className="text-[#3CC1A9] text-3xl font-interMedium ">
@@ -102,7 +102,7 @@ const SignIn: React.FC = () => {
 
                 <Link
                   href="+not-found"
-                  className="self-end text-base text-[#209B85] font-interRegular my-2 mr-6"
+                  className="self-end text-base text-[#209B85] font-interRegular my-2"
                 >
                   Esqueceu a senha?
                 </Link>

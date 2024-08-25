@@ -81,7 +81,7 @@ const SignUp: React.FC = () => {
   return (
     <SafeAreaView className="bg-[#F6F6F6] h-full">
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="w-full h-full flex justify-center items-center p-4">
+        <View className="w-full h-full flex justify-center items-center p-6">
           <View className="absolute top-4 left-4">
             <Ionicons
               name="chevron-back-outline"
@@ -120,7 +120,7 @@ const SignUp: React.FC = () => {
                   Cadastre-se
                 </Text>
 
-                <View className="my-5">
+                <View className="my-3 w-full">
                   <FormField
                     label="Nome"
                     icon="person-outline"
@@ -196,7 +196,7 @@ const SignUp: React.FC = () => {
                   />
                 </View>
 
-                <Text className="text-center font-interRegular mb-4 mx-4">
+                <Text className="text-center font-interRegular mb-4">
                   <Text>Ao se cadastrar, você concorda com os nossos </Text>
                   <Link href="+not-found" className="text-[#209B85]">
                     Termos

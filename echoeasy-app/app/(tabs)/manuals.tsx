@@ -18,7 +18,7 @@ const blurhash =
 const Manuals: React.FC = () => {
   const { user } = useGlobalContext();
   return (
-    <SafeAreaView className="bg-[#F6F6F6] h-full px-4">
+    <SafeAreaView className="bg-[#F6F6F6] h-full px-6">
 
         <Text>Bem-vindo, {user?.name} {user?.lastname}!</Text>
         <Text className='font-interMedium text-2xl'>Manuais</Text>
