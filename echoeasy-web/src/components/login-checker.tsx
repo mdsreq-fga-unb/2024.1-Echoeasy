@@ -53,7 +53,7 @@ export default function AuthChecker({ children }: { children: ReactNode }) {
     };
 
     checkAuth();
-  }, [router, setUser, token]);
+  }, [router, setUser, token, setIsLoading]);
 
   if (isLoading) {
     return (
