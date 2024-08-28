@@ -7,7 +7,7 @@ import { toast } from "./ui/use-toast";
 
 export default function AuthChecker({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { token, setUser } = useTokenContext();
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export default function AuthChecker({ children }: { children: ReactNode }) {
     }
 
     const checkAuth = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/auth/me`,
