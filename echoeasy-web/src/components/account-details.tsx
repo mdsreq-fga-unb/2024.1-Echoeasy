@@ -1,13 +1,9 @@
 "use client";
 import { useTokenContext } from "@/contexts/TokenContext";
-import { User } from "@/types/user";
-import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "./ui/card";
@@ -15,35 +11,10 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
 export default function AccountDetails() {
-  const { token, logout } = useTokenContext();
-  const [user, setUser] = useState<User>();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (token) {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/auth/me`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (response.ok) {
-          const data: User = await response.json();
-          setUser(data);
-        }
-      }
-    };
-
-    fetchData();
-  }, [token]);
+  const { user } = useTokenContext();
 
   return (
-    <Card>
+    <Card className="w-full h-fit">
       <CardHeader>
         <CardTitle>Sua Conta </CardTitle>
         <CardDescription>Informações sobre a sua conta.</CardDescription>
@@ -96,11 +67,6 @@ export default function AccountDetails() {
           disabled
         />
       </CardContent>
-      <CardFooter>
-        <Button className="w-full" onClick={logout}>
-          Sair
-        </Button>
-      </CardFooter>
     </Card>
   );
 }
