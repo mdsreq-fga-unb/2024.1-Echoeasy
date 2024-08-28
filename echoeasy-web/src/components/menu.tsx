@@ -13,7 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useToken } from "@/hooks/useToken";
+import { useTokenContext } from "@/contexts/TokenContext";
 import { getMenuList } from "@/lib/menu-list";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +24,7 @@ interface MenuProps {
 export function Menu({ isOpen }: MenuProps) {
   const pathname = usePathname();
   const menuList = getMenuList(pathname);
-  const { logout } = useToken();
+  const { logout } = useTokenContext();
 
   return (
     <ScrollArea className="[&>div>div[style]]:!block">

@@ -4,7 +4,7 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { useToken } from "@/hooks/useToken";
+import { useTokenContext } from "@/contexts/TokenContext";
 import { ReactNode } from "react";
 import { toast } from "./ui/use-toast";
 
@@ -12,7 +12,7 @@ export default function AuthChecker({ children }: { children: ReactNode }) {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(true);
-  const { token, setUser } = useToken();
+  const { token, setUser } = useTokenContext();
 
   useEffect(() => {
     const token = sessionStorage.getItem("authToken");

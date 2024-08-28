@@ -1,5 +1,5 @@
 "use client";
-import { useToken } from "@/hooks/useToken";
+import { useTokenContext } from "@/contexts/TokenContext";
 import { User } from "@/types/user";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
@@ -15,7 +15,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
 export default function AccountDetails() {
-  const { token, logout } = useToken();
+  const { token, logout } = useTokenContext();
   const [user, setUser] = useState<User>();
 
   useEffect(() => {

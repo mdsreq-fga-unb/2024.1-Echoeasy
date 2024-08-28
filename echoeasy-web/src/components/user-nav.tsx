@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutGrid, LogOut, User } from "lucide-react";
+import { LogOut, User } from "lucide-react";
 import Link from "next/link";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -20,10 +20,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useToken } from "@/hooks/useToken";
+import { useTokenContext } from "@/contexts/TokenContext";
 
 export function UserNav() {
-  const { logout } = useToken();
+  const { user, logout } = useTokenContext();
 
   return (
     <DropdownMenu>
@@ -49,22 +49,18 @@ export function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">John Doe</p>
+            <p className="text-sm font-medium leading-none">
+              {user?.name ?? "Não informado"}
+            </p>
             <p className="text-xs leading-none text-muted-foreground">
-              johndoe@example.com
+              {user?.email ?? "Não informado"}
             </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem className="hover:cursor-pointer" asChild>
-            <Link href="/" className="flex items-center">
-              <LayoutGrid className="w-4 h-4 mr-3 text-muted-foreground" />
-              Dashboard
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem className="hover:cursor-pointer" asChild>
-            <Link href="/conta" className="flex items-center">
+            <Link href="/minha-conta" className="flex items-center">
               <User className="w-4 h-4 mr-3 text-muted-foreground" />
               Conta
             </Link>
