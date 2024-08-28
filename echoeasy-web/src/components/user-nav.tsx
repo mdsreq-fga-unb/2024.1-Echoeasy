@@ -21,9 +21,18 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useTokenContext } from "@/contexts/TokenContext";
+import Image from "next/image";
+import { useMemo } from "react";
 
 export function UserNav() {
   const { user, logout } = useTokenContext();
+
+  const userAvatarLetters = useMemo(() => {
+    if (user?.name && user.lastname) {
+      return `${user.name[0]}${user.lastname[0]}`.toUpperCase();
+    }
+    return user?.name?.[0]?.toUpperCase() ?? "-";
+  }, [user]);
 
   return (
     <DropdownMenu>
@@ -37,7 +46,21 @@ export function UserNav() {
               >
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="#" alt="Avatar" />
-                  <AvatarFallback className="bg-transparent">JD</AvatarFallback>
+                  <AvatarFallback className="bg-transparent">
+                    <>
+                      {user?.image ? (
+                        <Image
+                          src={user.image}
+                          alt="Avatar"
+                          className="rounded-full"
+                          width={32}
+                          height={32}
+                        />
+                      ) : (
+                        userAvatarLetters
+                      )}
+                    </>
+                  </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
