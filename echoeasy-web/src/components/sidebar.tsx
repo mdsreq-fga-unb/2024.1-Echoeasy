@@ -1,4 +1,4 @@
-import { PanelsTopLeft } from "lucide-react";
+import { Activity } from "lucide-react";
 import Link from "next/link";
 
 import { Menu } from "@/components/menu";
@@ -30,8 +30,8 @@ export function Sidebar() {
           variant="link"
           asChild
         >
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <PanelsTopLeft className="w-6 h-6 mr-1" />
+          <Link href="/" className="flex items-center gap-2">
+            <Activity className="w-6 h-6 mr-1" />
             <h1
               className={cn(
                 "font-bold text-lg whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",

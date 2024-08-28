@@ -1,12 +1,4 @@
-import {
-  Bookmark,
-  LayoutGrid,
-  LucideIcon,
-  Settings,
-  SquarePen,
-  Tag,
-  Users,
-} from "lucide-react";
+import { FileText, LayoutGrid, LucideIcon, UserCog, Users } from "lucide-react";
 
 type Submenu = {
   href: string;
@@ -30,69 +22,39 @@ type Group = {
 export function getMenuList(pathname: string): Group[] {
   return [
     {
-      groupLabel: "",
+      groupLabel: "Páginas",
       menus: [
         {
-          href: "/dashboard",
+          href: "/",
           label: "Dashboard",
-          active: pathname.includes("/dashboard"),
+          active: pathname.endsWith("/"),
           icon: LayoutGrid,
           submenus: [],
         },
-      ],
-    },
-    {
-      groupLabel: "Contents",
-      menus: [
         {
-          href: "",
-          label: "Posts",
-          active: pathname.includes("/posts"),
-          icon: SquarePen,
-          submenus: [
-            {
-              href: "/posts",
-              label: "All Posts",
-              active: pathname === "/posts",
-            },
-            {
-              href: "/posts/new",
-              label: "New Post",
-              active: pathname === "/posts/new",
-            },
-          ],
-        },
-        {
-          href: "/categories",
-          label: "Categories",
-          active: pathname.includes("/categories"),
-          icon: Bookmark,
+          href: "/documentos",
+          label: "Documentos",
+          active: pathname.includes("/documentos"),
+          icon: FileText,
           submenus: [],
         },
         {
-          href: "/tags",
-          label: "Tags",
-          active: pathname.includes("/tags"),
-          icon: Tag,
-          submenus: [],
-        },
-      ],
-    },
-    {
-      groupLabel: "Settings",
-      menus: [
-        {
-          href: "/users",
-          label: "Users",
-          active: pathname.includes("/users"),
+          href: "/usuarios",
+          label: "Usuários",
+          active: pathname.includes("/usuarios"),
           icon: Users,
           submenus: [],
         },
+      ],
+    },
+    {
+      groupLabel: "Configurações",
+      menus: [
         {
-          href: "/account",
-          label: "Account",
-          active: pathname.includes("/account"),
-          icon: Settings,
+          href: "/minha-conta",
+          label: "Minha Conta",
+          active: pathname.includes("/minha-conta"),
+          icon: UserCog,
           submenus: [],
         },
       ],

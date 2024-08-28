@@ -13,6 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useToken } from "@/hooks/useToken";
 import { getMenuList } from "@/lib/menu-list";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,7 @@ interface MenuProps {
 export function Menu({ isOpen }: MenuProps) {
   const pathname = usePathname();
   const menuList = getMenuList(pathname);
+  const { logout } = useToken();
 
   return (
     <ScrollArea className="[&>div>div[style]]:!block">
@@ -108,7 +110,7 @@ export function Menu({ isOpen }: MenuProps) {
               <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
                   <Button
-                    onClick={() => {}}
+                    onClick={logout}
                     variant="outline"
                     className="w-full justify-center h-10 mt-5"
                   >
@@ -121,12 +123,12 @@ export function Menu({ isOpen }: MenuProps) {
                         isOpen === false ? "opacity-0 hidden" : "opacity-100"
                       )}
                     >
-                      Sign out
+                      Sair
                     </p>
                   </Button>
                 </TooltipTrigger>
                 {isOpen === false && (
-                  <TooltipContent side="right">Sign out</TooltipContent>
+                  <TooltipContent side="right">Sair</TooltipContent>
                 )}
               </Tooltip>
             </TooltipProvider>

@@ -20,8 +20,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useToken } from "@/hooks/useToken";
 
 export function UserNav() {
+  const { logout } = useToken();
+
   return (
     <DropdownMenu>
       <TooltipProvider disableHoverableContent>
@@ -55,22 +58,22 @@ export function UserNav() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem className="hover:cursor-pointer" asChild>
-            <Link href="/dashboard" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <LayoutGrid className="w-4 h-4 mr-3 text-muted-foreground" />
               Dashboard
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem className="hover:cursor-pointer" asChild>
-            <Link href="/account" className="flex items-center">
+            <Link href="/conta" className="flex items-center">
               <User className="w-4 h-4 mr-3 text-muted-foreground" />
-              Account
+              Conta
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="hover:cursor-pointer" onClick={() => {}}>
+        <DropdownMenuItem className="hover:cursor-pointer" onClick={logout}>
           <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
-          Sign out
+          Sair
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
