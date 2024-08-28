@@ -32,11 +32,22 @@ export function getMenuList(pathname: string): Group[] {
           submenus: [],
         },
         {
-          href: "/documentos",
+          href: "",
           label: "Documentos",
           active: pathname.includes("/documentos"),
           icon: FileText,
-          submenus: [],
+          submenus: [
+            {
+              href: "/documentos",
+              label: "Visualizar Documentos",
+              active: pathname === "/documentos",
+            },
+            {
+              href: "/documentos/criar",
+              label: "Criar Documento",
+              active: pathname === "/documentos/criar",
+            },
+          ],
         },
         {
           href: "/usuarios",
