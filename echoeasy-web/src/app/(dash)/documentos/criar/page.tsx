@@ -3,8 +3,15 @@
 import { ContentLayout } from "@/components/content-layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Table } from "@/components/ui/table";
 import { toast } from "@/components/ui/use-toast";
 import { api } from "@/services/api";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,7 +21,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-// Schema de validação usando Zod
 const FormSchema = z.object({
   title: z.string().min(1, { message: "Título é obrigatório" }),
   description: z.string().min(1, { message: "Descrição é obrigatória" }),
@@ -26,7 +32,6 @@ export default function CriarDocumento() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  // Configuração do formulário com react-hook-form e Zod
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -37,20 +42,17 @@ export default function CriarDocumento() {
     },
   });
 
-  // Função para envio do formulário
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       setIsLoading(true);
 
-      // Criação de FormData para envio de arquivos
       const formData = new FormData();
       formData.append("title", data.title);
       formData.append("description", data.description);
       if (data.category) formData.append("category", data.category);
       if (data.image) formData.append("image", data.image);
 
-      // Requisição para API
-      const response = await api.post("/documentos", formData, {
+      await api.post("/documentos", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -64,11 +66,11 @@ export default function CriarDocumento() {
       router.push("/documentos");
       setIsLoading(false);
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       setIsLoading(false);
       toast({
         title: "Erro ao criar documento",
-        description: error.response.data.message || "Erro inesperado.",
+        description: error.response?.data.message || "Erro inesperado.",
         variant: "destructive",
       });
     }
@@ -89,69 +91,95 @@ export default function CriarDocumento() {
           <CardTitle>Criar Documento</CardTitle>
         </CardHeader>
         <CardContent>
-          {/* Formulário de criação de documentos */}
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div>
-              <label htmlFor="title" className="block text-sm font-medium">
-                Título
-              </label>
-              <Input
-                type="text"
-                id="title"
-                placeholder="Digite o título"
-                {...form.register("title")}
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Título</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="Digite o título"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
-            <div>
-              <label
-                htmlFor="description"
-                className="block text-sm font-medium"
-              >
-                Descrição
-              </label>
-              <Input
-                type="text"
-                id="description"
-                placeholder="Digite a descrição"
-                {...form.register("description")}
+
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Descrição</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="Digite a descrição"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
-            <div>
-              <label htmlFor="category" className="block text-sm font-medium">
-                Categoria
-              </label>
-              <Input
-                type="text"
-                id="category"
-                placeholder="Digite a categoria (opcional)"
-                {...form.register("category")}
+
+              <FormField
+                control={form.control}
+                name="category"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Categoria</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="Digite a categoria (opcional)"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
-            <div>
-              <label htmlFor="image" className="block text-sm font-medium">
-                Imagem
-              </label>
-              <Input
-                type="file"
-                id="image"
-                onChange={(e) => form.setValue("image", e.target.files?.[0])}
+
+              <FormField
+                control={form.control}
+                name="image"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Imagem</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        onChange={(e) =>
+                          field.onChange(e.target.files?.[0] ?? undefined)
+                        }
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
-            {isLoading ? (
-              <Button className="w-full" disabled>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Salvando...
-              </Button>
-            ) : (
-              <Button type="submit" className="w-full">
-                Salvar
-              </Button>
-            )}
-          </form>
+
+              {isLoading ? (
+                <Button className="w-full" disabled>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Salvando...
+                </Button>
+              ) : (
+                <Button type="submit" className="w-full">
+                  Salvar
+                </Button>
+              )}
+            </form>
+          </Form>
         </CardContent>
       </Card>
-
-      <Table>{/* Se precisar, adicione a tabela aqui */}</Table>
     </ContentLayout>
   );
 }
