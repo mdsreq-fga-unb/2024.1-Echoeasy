@@ -2,6 +2,7 @@
 
 import AuthChecker from "@/components/login-checker";
 import { Sidebar } from "@/components/sidebar";
+import { Toaster } from "@/components/ui/toaster";
 import { TokenProvider } from "@/contexts/TokenContext";
 import { useSidebarToggle } from "@/hooks/use-sidebar-toggle";
 import { useStore } from "@/hooks/use-store";
@@ -29,6 +30,7 @@ export default function RootLayout({
         >
           {children}
         </div>
+        <Toaster />
       </AuthChecker>
     </TokenProvider>
   );

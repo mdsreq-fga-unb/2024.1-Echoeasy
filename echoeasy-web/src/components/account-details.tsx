@@ -1,5 +1,6 @@
 "use client";
 import { useTokenContext } from "@/contexts/TokenContext";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -18,6 +19,15 @@ export default function AccountDetails() {
       <CardHeader>
         <CardTitle>Sua Conta </CardTitle>
         <CardDescription>Informações sobre a sua conta.</CardDescription>
+        {user?.image && (
+          <Image
+            src={user.image}
+            alt="Avatar"
+            className="rounded-sm self-center"
+            width={200}
+            height={200}
+          />
+        )}
       </CardHeader>
       <CardContent className="space-y-2">
         <Label htmlFor="email">Email</Label>

@@ -12,48 +12,63 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { toast } from "@/components/ui/use-toast";
 import { useGetAllDocuments } from "@/hooks/useGetAllDocuments";
+import { Loader2, PlusCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function Documentos() {
   const router = useRouter();
-  const { data: documents } = useGetAllDocuments();
-
-  console.log(documents); // Debug para verificar os documentos recebidos
+  const { data: documents, isLoading } = useGetAllDocuments();
 
   const handleEdit = (documentId: any) => {
-    // Lógica para editar o documento
-    console.log("Editar documento:", documentId);
-    // Redireciona para a página de edição do documento
-    router.push(`/documentos/editar/${documentId}`);
+    toast({
+      title: "Edição não disponível",
+      description: "Documento Id: " + documentId,
+      variant: "destructive",
+    });
   };
 
   const handleDelete = (documentId: any) => {
-    // Lógica para deletar o documento
-    console.log("Deletar documento:", documentId);
-    // Adicione a lógica de exclusão aqui, como uma chamada API para deletar o documento
+    toast({
+      title: "Deleção não disponível",
+      description: "Documento Id: " + documentId,
+      variant: "destructive",
+    });
   };
-  return (
-    <ContentLayout className="flex flex-col gap-10" title="Documentos">
-      <Button
-        className="w-fit self-end"
-        onClick={() => router.push("/documentos/criar")}
-      >
-        Criar Documento
-      </Button>
 
+  if (isLoading) {
+    return (
+      <ContentLayout
+        className="flex justify-center items-center"
+        title="Documentos"
+      >
+        <Loader2 className="h-10 w-10 animate-spin" />
+      </ContentLayout>
+    );
+  }
+
+  return (
+    <ContentLayout title="Documentos">
       <Card>
         <CardHeader>
           <CardTitle>Documentos</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-col gap-10">
+          <Button
+            className="w-fit"
+            onClick={() => router.push("/documentos/criar")}
+          >
+            <PlusCircle className="mr-2" />
+            Criar Novo Documento
+          </Button>
           <Table>
             <TableCaption>Lista de documentos cadastrados</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Actions</TableHead>
+                <TableHead>Título</TableHead>
+                <TableHead>Descrição</TableHead>
+                <TableHead>Ações</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
