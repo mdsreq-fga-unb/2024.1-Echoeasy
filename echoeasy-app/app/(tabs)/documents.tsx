@@ -44,7 +44,7 @@ const Documents: React.FC = () => {
     );
 
   return (
-    <SafeAreaView className="bg-[#F6F6F6] h-full p-6">
+    <SafeAreaView className="bg-[#F6F6F6] h-full p-6 py-10">
       <Text className="font-interMedium text-2xl">Documentos</Text>
       <View className="w-full h-full flex items-center">
         <SearchInput
@@ -55,14 +55,12 @@ const Documents: React.FC = () => {
           data={docs}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-          
-                <ItemCard
-                  title={item.title}
-                  description={item.description}
-                  image={item.image}
-                  handlePress={() => router.push(`/documents/${item._id}`)}
-                />
-              
+            <ItemCard
+              title={item.title}
+              description={item.description}
+              image={item.image}
+              handlePress={() => router.push(`/documents/${item._id}`)}
+            />
           )}
         />
       </View>
