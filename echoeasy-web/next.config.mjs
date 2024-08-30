@@ -4,7 +4,6 @@ const nextConfig = {
   images: {
     domains: ["storage.googleapis.com"],
   },
-  output: "export",
 };
 
 export default nextConfig;
