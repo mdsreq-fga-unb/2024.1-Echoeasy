@@ -57,6 +57,14 @@ export class AssuntoRepository {
     }
   }
 
+  async findByDocumentId(documentId: string): Promise<Assunto[]> {
+    try {
+      return this.assuntoModel.find({ document_id: documentId }).exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
   async findOne(_id: string): Promise<Assunto | null> {
     try {
       if (!Types.ObjectId.isValid(_id)) {

@@ -1,23 +1,23 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Query,
+  Controller,
   Delete,
-  Put,
-  UseGuards,
-  UseInterceptors,
-  UploadedFile,
+  Get,
   HttpException,
   HttpStatus,
+  Post,
+  Put,
+  Query,
+  UploadedFile,
+  UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { AuthGuard } from 'src/guards/auth.guard';
+import { MulterFile } from 'src/types/File';
+import { AssuntoDto } from '../dto/AssuntoDto';
 import { Assunto } from '../schema/Assunto';
 import { AssuntoService } from '../service/assunto.service';
-import { AssuntoDto } from '../dto/AssuntoDto';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { FileInterceptor } from '@nestjs/platform-express';
-import { MulterFile } from 'src/types/File';
 
 @Controller('assuntos')
 export class AssuntoController {
@@ -39,9 +39,14 @@ export class AssuntoController {
 
   @Get('all')
   @UseGuards(AuthGuard)
-  async getAssuntos(): Promise<Assunto[]> {
+  async getAssuntos(
+    @Query('document_id') documentId?: string,
+  ): Promise<Assunto[]> {
     try {
-      return this.assuntoService.findAll();
+      if (documentId) {
+        return await this.assuntoService.findAllByDocumentId(documentId);
+      }
+      return await this.assuntoService.findAll();
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
