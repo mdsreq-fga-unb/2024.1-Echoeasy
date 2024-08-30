@@ -58,7 +58,7 @@ const Documents: React.FC = () => {
               title={item.title}
               description={item.description}
               image={item.image}
-              handlePress={() => router.push(`/documents/${item._id}`)}
+              handlePress={() => router.push(`/${item._id}`)}
             />
           )}
         />
