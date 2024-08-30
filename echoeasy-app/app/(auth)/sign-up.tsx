@@ -7,9 +7,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import * as yup from "yup";
 import CustomButton from "../../components/CustomButton";
 import FormField from "../../components/FormField";
-import { formatPhoneNumber } from "../../src/utils/formatPhoneNumber";
 import { UsuarioService } from "../../src/service/UsuarioService";
 import { SignUpPayload } from "../../src/types/User";
+import { formatPhoneNumber } from "../../src/utils/formatPhoneNumber";
 
 const signUpSchema = yup.object().shape({
   name: yup.string().required("Nome é obrigatório"),
@@ -59,7 +59,7 @@ const SignUp: React.FC = () => {
       const payload: SignUpPayload = {
         name: values.name,
         lastname: values.lastname,
-        email: values.email,
+        email: values.email.toLocaleLowerCase(),
         cellphone: values.cellphone,
         password: values.password,
       };
@@ -216,7 +216,9 @@ const SignUp: React.FC = () => {
                 />
 
                 {error ? (
-                  <Text className="font-interRegular px-4 text-red-500 text-center mt-4">{error}</Text>
+                  <Text className="font-interRegular px-4 text-red-500 text-center mt-4">
+                    {error}
+                  </Text>
                 ) : null}
 
                 <View className="flex-row justify-center mt-4">

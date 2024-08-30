@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Link, router } from "expo-router";
 import { Formik } from "formik";
 import React, { useState } from "react";
@@ -35,11 +35,10 @@ const SignIn: React.FC = () => {
       }
 
       await AsyncStorage.setItem("authToken", token);
-      setToken(token)
-      setIsLogged(true)
+      setToken(token);
+      setIsLogged(true);
       setMessage("Usuário logado com sucesso");
       router.replace("/documents");
-
     } catch (error: any) {
       console.log(error);
       setError(error.response?.data?.message);
@@ -63,6 +62,7 @@ const SignIn: React.FC = () => {
             initialValues={{ email: "", password: "" }}
             validationSchema={signInSchema}
             onSubmit={async (values, { setSubmitting }) => {
+              values.email = values.email.toLowerCase();
               await handleSignIn(values, setSubmitting);
             }}
             validateOnMount={true}
@@ -115,7 +115,9 @@ const SignIn: React.FC = () => {
                 />
 
                 {error ? (
-                  <Text className="font-interRegular px-4 text-red-500 text-center mt-4">{error}</Text>
+                  <Text className="font-interRegular px-4 text-red-500 text-center mt-4">
+                    {error}
+                  </Text>
                 ) : null}
               </>
             )}
