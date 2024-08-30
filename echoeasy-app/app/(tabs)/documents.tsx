@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemCard from "../../components/ItemCard";
-import SearchInput from "../../components/SearchInput";
 import { useGlobalContext } from "../../src/context/GlobalProvider";
 import { DocService } from "../../src/service/DocService";
 
@@ -47,13 +46,13 @@ const Documents: React.FC = () => {
     <SafeAreaView className="bg-[#F6F6F6] h-full p-6 py-10">
       <Text className="font-interMedium text-2xl">Documentos</Text>
       <View className="w-full h-full flex items-center">
-        <SearchInput
+        {/* <SearchInput
           placeholder="Pesquise por um documento"
           icon="search-outline"
-        />
+        /> */}
         <FlatList
           data={docs}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(item) => item._id}
           renderItem={({ item }) => (
             <ItemCard
               title={item.title}
