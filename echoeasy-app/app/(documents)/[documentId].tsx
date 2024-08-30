@@ -49,7 +49,6 @@ const DocumentId: React.FC = () => {
           keyExtractor={(item) => item._id}
           renderItem={({ item }) => (
             <ItemCard
-              isSubject
               title={item.title}
               handlePress={() => router.push(`(subjects)/${item._id}`)}
             />
