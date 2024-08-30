@@ -1,7 +1,7 @@
 import { ApiService } from "../api/apiService";
 
 export class SubjectService extends ApiService {
-    async getAllDocument(token: string | null, documentId: string) {
+    async getAllSubjectsOfTheDocument(token: string | null, documentId: string) {
         if (!token) {
             throw new Error('No token provided');
           }

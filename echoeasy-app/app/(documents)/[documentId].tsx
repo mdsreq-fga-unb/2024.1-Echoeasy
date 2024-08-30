@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -20,10 +20,10 @@ const DocumentId: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchSubjects = async () => {
-    setLoading(true); //provisorio
+    setLoading(true);
     try {
       const subjectService = new SubjectService();
-      const response = await subjectService.getAllDocument(
+      const response = await subjectService.getAllSubjectsOfTheDocument(
         token,
         documentId as string
       );
@@ -40,8 +40,11 @@ const DocumentId: React.FC = () => {
   }, []);
 
   return (
-    <SafeAreaView className="bg-[#F6F6F6] h-full p-6">
-      <View className="w-full h-full flex items-center">
+    <SafeAreaView className="bg-[#F6F6F6] h-full px-6">
+      <View className="w-full h-full flex">
+
+      <Text className="font-interMedium text-2xl">funciona</Text>
+
         <FlatList
           data={subjects}
           keyExtractor={(item, index) => index.toString()}
@@ -50,12 +53,12 @@ const DocumentId: React.FC = () => {
               title={item.title}
               description={item.description}
               image={item.image}
-              // handlePress={() => router.push(`/subject/${item._id}`)}
+              handlePress={() => router.push(`(subjects)/${item._id}`)}
             />
           )}
           ListEmptyComponent={() => (
             <View className="flex justify-center items-center px-4">
-              <Text>Não há assuntos</Text>
+              <Text className="p-6 font-interLight text-base">Ainda não há assuntos.</Text>
             </View>
           )}
         />

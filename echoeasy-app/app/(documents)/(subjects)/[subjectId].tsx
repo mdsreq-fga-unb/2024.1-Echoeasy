@@ -10,7 +10,7 @@ const SubjectId: React.FC = () => {
   return (
     <SafeAreaView className="bg-[#F6F6F6] h-full">
       <ScrollView contentContainerStyle={{ height: '100%' }}>
-        <View className="w-full h-full p-6">
+        <View className="w-full h-full px-6">
 
         <Text>Details of user {subjectId} </Text>
 
