@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { ReactNode, createContext, useContext, useEffect, useState } from "react";
 import { UsuarioService } from "../service/UsuarioService";
 
 interface User {
@@ -70,15 +70,10 @@ const GlobalProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      if (!token) {
-        setIsLogged(false);
-        setUser(null);
-        return;
-      }
 
       try {
         const usuarioService = new UsuarioService();
-        const response = await usuarioService.getMe(token);
+        const response = await usuarioService.getMe();
         setUser(response.data);
         setIsLogged(true);
       } catch (error) {

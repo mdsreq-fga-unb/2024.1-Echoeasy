@@ -28,10 +28,7 @@ const DocumentId: React.FC = () => {
   const fetchSubjects = async () => {
     try {
       const subjectService = new SubjectService();
-      const response = await subjectService.getAllSubjectsOfTheDocument(
-        token,
-        documentId as string
-      );
+      const response = await subjectService.getAllSubjectsOfTheDocument(documentId as string);
       setSubjects(response.data as Item[]);
     } catch (error: any) {
       console.error("Error fetching subjects:", error.message || error);
