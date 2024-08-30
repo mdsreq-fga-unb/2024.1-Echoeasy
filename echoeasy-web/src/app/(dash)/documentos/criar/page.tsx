@@ -131,24 +131,6 @@ export default function CriarDocumento() {
 
               <FormField
                 control={form.control}
-                name="category"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Categoria</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="text"
-                        placeholder="Digite a categoria (opcional)"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
                 name="image"
                 render={({ field }) => (
                   <FormItem>
