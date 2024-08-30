@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
 import { Link } from "expo-router";
+import React from 'react';
+import { Text, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Welcome: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Welcome: React.FC = () => {
         <Link href="/sign-up" className="text-blue-500">
           SignUp
         </Link>
-        <Link href="/manuals" className="text-blue-500">
+        <Link href="/documents" className="text-blue-500">
           Main
         </Link>
 

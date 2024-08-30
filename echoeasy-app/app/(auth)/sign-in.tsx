@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Link, router } from "expo-router";
 import { Formik } from "formik";
 import React, { useState } from "react";
@@ -6,10 +7,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import * as yup from "yup";
 import CustomButton from "../../components/CustomButton";
 import FormField from "../../components/FormField";
+import { useGlobalContext } from "../../src/context/GlobalProvider";
 import { UsuarioService } from "../../src/service/UsuarioService";
 import { SignInPayload } from "../../src/types/User";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useGlobalContext } from "../../src/context/GlobalProvider";
 
 const signInSchema = yup.object().shape({
   email: yup.string().email("E-mail inválido").required("E-mail é obrigatório"),
@@ -38,7 +38,7 @@ const SignIn: React.FC = () => {
       setToken(token)
       setIsLogged(true)
       setMessage("Usuário logado com sucesso");
-      router.replace("/manuals");
+      router.replace("/documents");
 
     } catch (error: any) {
       console.log(error);

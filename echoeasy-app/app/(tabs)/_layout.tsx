@@ -1,8 +1,8 @@
-import React from 'react';
-import { useGlobalContext } from "../../src/context/GlobalProvider";
 import { Redirect, Tabs } from "expo-router";
-import TabBarIcon from "../../components/TabBarIcon";
+import React from 'react';
 import Loader from "../../components/Loader";
+import TabBarIcon from "../../components/TabBarIcon";
+import { useGlobalContext } from "../../src/context/GlobalProvider";
 
 
 const TabLayout = () => {
@@ -40,16 +40,16 @@ const TabLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="manuals"
+          name="documents"
           options={{
-            title: "Manuais",
+            title: "Documentos",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 icon="document-text-outline"
                 color={color}
                 focused={focused}
-                label="Manuais"
+                label="Documentos"
               />
             ),
           }}
