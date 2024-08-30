@@ -5,7 +5,7 @@ export class SubjectService extends ApiService {
     return this.get(`/assuntos/all?document_id=${documentId}`);
   }
 
-  async getSubjectContent(documentId: string) {
-    return this.get(`/assuntos/search?document_id=${documentId}`);
+  async getSubjectContent(subjectId: string) {
+    return this.get(`/assuntos/search?_id=${subjectId}`);
   }
 }

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { FlatList, RefreshControl, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemCard from "../../components/ItemCard";
-import { useGlobalContext } from "../../src/context/GlobalProvider";
 import { SubjectService } from "../../src/service/SubjectService";
 
 type Item = {
@@ -15,7 +14,6 @@ type Item = {
 
 const DocumentId: React.FC = () => {
   const { documentId } = useLocalSearchParams();
-  const { token } = useGlobalContext();
   const [subjects, setSubjects] = useState<Item[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -28,7 +26,9 @@ const DocumentId: React.FC = () => {
   const fetchSubjects = async () => {
     try {
       const subjectService = new SubjectService();
-      const response = await subjectService.getAllSubjectsOfTheDocument(documentId as string);
+      const response = await subjectService.getAllSubjectsOfTheDocument(
+        documentId as string
+      );
       setSubjects(response.data as Item[]);
     } catch (error: any) {
       console.error("Error fetching subjects:", error.message || error);
@@ -46,12 +46,11 @@ const DocumentId: React.FC = () => {
 
         <FlatList
           data={subjects}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(item) => item._id}
           renderItem={({ item }) => (
             <ItemCard
+              isSubject
               title={item.title}
-              description={item.description}
-              image={item.image}
               handlePress={() => router.push(`(subjects)/${item._id}`)}
             />
           )}
