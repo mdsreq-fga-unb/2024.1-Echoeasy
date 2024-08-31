@@ -140,15 +140,17 @@ export default function EditarDocumento({
                 )}
               />
 
-              <Image
-                src={documentData.image}
-                alt="Imagem do documento"
-                width={200}
-                height={200}
-              />
-              <Button type="button" variant="outline">
-                Alterar Imagem
-              </Button>
+              <div className="flex flex-col w-fit items-center gap-4">
+                <Image
+                  src={documentData.image}
+                  alt="Imagem do documento"
+                  width={200}
+                  height={200}
+                />
+                <Button className="w-fit" type="button" variant="outline">
+                  Alterar Imagem
+                </Button>
+              </div>
 
               {isLoadingDocument ? (
                 <Button className="w-full" disabled>
