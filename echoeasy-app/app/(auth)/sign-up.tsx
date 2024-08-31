@@ -1,4 +1,3 @@
-import { Ionicons } from "@expo/vector-icons";
 import { Link, router } from "expo-router";
 import { Formik } from "formik";
 import React, { useState } from "react";
@@ -82,14 +81,6 @@ const SignUp: React.FC = () => {
     <SafeAreaView className="bg-[#F6F6F6] h-full">
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View className="w-full h-full flex justify-center items-center p-6">
-          <View className="absolute top-4 left-4">
-            <Ionicons
-              name="chevron-back-outline"
-              size={32}
-              color="black"
-              onPress={() => router.push("/sign-in")}
-            />
-          </View>
           <Formik
             initialValues={{
               name: "",
