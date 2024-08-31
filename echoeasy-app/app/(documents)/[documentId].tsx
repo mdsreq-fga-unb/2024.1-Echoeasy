@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FlatList, RefreshControl, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SubItemCard from "../../components/SubItemCard";
+import { DocService } from "../../src/service/DocService";
 import { SubjectService } from "../../src/service/SubjectService";
 
 type Item = {
@@ -16,12 +17,24 @@ const DocumentId: React.FC = () => {
   const { documentId } = useLocalSearchParams();
   const [subjects, setSubjects] = useState<Item[]>([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [document, setDocument] = useState<Item>()
 
   const onRefresh = async () => {
     setRefreshing(true);
     await fetchSubjects();
     setRefreshing(false);
   };
+
+  const fetchDocument = async () => {
+    try {
+      const docService = new DocService();
+      const response = await docService.readDocument(documentId as string);
+      setDocument(response.data as Item);
+
+    } catch (error: any){
+      console.error("Error fetching document:", error.message || error);
+    }
+  }
 
   const fetchSubjects = async () => {
     try {
@@ -36,13 +49,14 @@ const DocumentId: React.FC = () => {
   };
 
   useEffect(() => {
+    fetchDocument();
     fetchSubjects();
   }, []);
 
   return (
     <SafeAreaView className="bg-[#F6F6F6] h-full px-6">
       <View className="w-full h-full flex">
-        <Text className="font-interMedium text-2xl">Assuntos</Text>
+        <Text className="font-interMedium text-2xl">{document?.title}</Text>
 
         <FlatList
           data={subjects}
