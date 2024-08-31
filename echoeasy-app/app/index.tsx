@@ -15,7 +15,13 @@ const Welcome: React.FC = () => {
           SignUp
         </Link>
         <Link href="/documents" className="text-blue-500">
-          Main
+          Documents
+        </Link>
+        <Link href="/more" className="text-blue-500">
+          More
+        </Link>
+        <Link href="/editProfile" className="text-blue-500">
+          Editar Perfil
         </Link>
 
         <Text>Futuramente, aqui pode ser uma tela de bem vindo</Text>
