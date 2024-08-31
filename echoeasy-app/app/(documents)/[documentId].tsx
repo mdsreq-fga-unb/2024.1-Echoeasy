@@ -2,7 +2,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { FlatList, RefreshControl, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import ItemCard from "../../components/ItemCard";
+import SubItemCard from "../../components/SubItemCard";
 import { SubjectService } from "../../src/service/SubjectService";
 
 type Item = {
@@ -48,7 +48,7 @@ const DocumentId: React.FC = () => {
           data={subjects}
           keyExtractor={(item) => item._id}
           renderItem={({ item }) => (
-            <ItemCard
+            <SubItemCard
               title={item.title}
               handlePress={() => router.push(`(subjects)/${item._id}`)}
             />

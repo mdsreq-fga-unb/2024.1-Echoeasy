@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, RefreshControl, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SubjectService } from "../../../src/service/SubjectService";
 
@@ -14,6 +14,14 @@ type Item = {
 const SubjectId: React.FC = () => {
   const { subjectId } = useLocalSearchParams();
   const [content, setContent] = useState<Item>();
+
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await fetchContent();
+    setRefreshing(false);
+  };
 
   const fetchContent = async () => {
     try {
@@ -41,7 +49,10 @@ const SubjectId: React.FC = () => {
 
   return (
     <SafeAreaView className="bg-[#F6F6F6] h-full">
-      <ScrollView contentContainerStyle={{ paddingVertical: 20 }}>
+      <ScrollView contentContainerStyle={{ paddingVertical: 20 }}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }>
         <View className="w-full px-6">
           <View key={content._id} className="mb-4">
             <Text className="font-interMedium text-2xl mb-2 text-center">
