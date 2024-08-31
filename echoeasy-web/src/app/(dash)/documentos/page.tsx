@@ -147,7 +147,9 @@ export default function Documentos() {
                     <div className="flex gap-2">
                       <Button
                         variant="outline"
-                        onClick={() => handleEdit(document._id)}
+                        onClick={() =>
+                          router.push(`/documentos/${document._id}`)
+                        }
                       >
                         Editar
                       </Button>
