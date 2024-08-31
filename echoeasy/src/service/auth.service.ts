@@ -7,7 +7,7 @@ import {
 } from 'firebase/auth';
 import { auth } from 'src/config/firebase';
 import { adminAuth } from 'src/config/firebase-admin';
-import { GetUsuarioDto } from 'src/dto/getUsuarioDto';
+import { GetUsuarioDto } from 'src/dto/GetUsuarioDto';
 import { SignUpEmailDto } from 'src/dto/signup-email.dto';
 import { UpdateUsuarioDto } from 'src/dto/update-usuario.dto';
 import { UsuarioDto } from 'src/dto/UsuarioDto';
@@ -137,14 +137,7 @@ export class AuthService {
         );
       }
 
-      return {
-        email: user.email,
-        name: user.name,
-        role: user.role,
-        lastname: user.lastname,
-        cellphone: user.cellphone,
-        firebaseId: user.firebaseId,
-      };
+      return user;
     } catch (error) {
       throw new HttpException(
         `Erro ao buscar dados do usuário: ${error.message}`,

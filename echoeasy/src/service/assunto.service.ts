@@ -1,9 +1,9 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common';
-import { AssuntoRepository } from '../repositories/assunto.repository';
+import { DocumentoRepository } from 'src/repositories/documento.repository';
 import { MulterFile } from 'src/types/File';
 import { AssuntoDto } from '../dto/AssuntoDto';
+import { AssuntoRepository } from '../repositories/assunto.repository';
 import { Assunto } from '../schema/Assunto';
-import { DocumentoRepository } from 'src/repositories/documento.repository';
 
 @Injectable()
 export class AssuntoService {
@@ -19,6 +19,14 @@ export class AssuntoService {
       const assunto = await this.assuntoRepository.create(assuntoData, file);
       this.logger.log('Finalizando criação de assunto...');
       return assunto;
+    } catch (error) {
+      throw new HttpException(error.message, 400);
+    }
+  }
+
+  async findAllByTitle(title: string): Promise<Assunto[]> {
+    try {
+      return this.assuntoRepository.findByAssuntoTitle(title);
     } catch (error) {
       throw new HttpException(error.message, 400);
     }

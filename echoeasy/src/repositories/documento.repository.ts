@@ -34,6 +34,27 @@ export class DocumentoRepository {
     }
   }
 
+  async findByDocumentTitle(title: string): Promise<Documento[]> {
+    try {
+      if (!title) {
+        throw new Error('Título inválido');
+      }
+      return this.documentoModel
+        .find({ title: { $regex: title, $options: 'i' } })
+        .exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
+  }
+
+  async save(documento: Documento): Promise<Documento> {
+    return documento.save();
+  }
+
+  async findById(_id: string): Promise<Documento> {
+    return this.documentoModel.findOne({ _id }).exec();
+  }
+
   async findAll(): Promise<Documento[]> {
     try {
       return this.documentoModel.find().exec();
@@ -163,6 +184,40 @@ export class DocumentoRepository {
 
         stream.end(file.buffer);
       });
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async addCategoria(
+    _id: string,
+    categoriaId: string,
+  ): Promise<Documento | null> {
+    try {
+      return this.documentoModel
+        .findByIdAndUpdate(
+          _id,
+          { $addToSet: { categorias: categoriaId } },
+          { new: true },
+        )
+        .exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async removeCategoria(
+    _id: string,
+    categoriaId: string,
+  ): Promise<Documento | null> {
+    try {
+      return this.documentoModel
+        .findByIdAndUpdate(
+          _id,
+          { $pull: { categorias: categoriaId } },
+          { new: true },
+        )
+        .exec();
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }

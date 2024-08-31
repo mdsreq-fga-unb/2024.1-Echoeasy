@@ -5,6 +5,7 @@ import {
   Get,
   HttpException,
   HttpStatus,
+  Param,
   Post,
   Put,
   Query,
@@ -92,6 +93,32 @@ export class DocumentoController {
   ): Promise<Documento | null> {
     try {
       return this.documentoService.deleteOne(_id);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  @Put(':id/add-categoria')
+  @UseGuards(AuthGuard)
+  async addCategoria(
+    @Param('id') id: string,
+    @Query('categoriaId') categoriaId: string,
+  ): Promise<Documento> {
+    try {
+      return await this.documentoService.addCategoria(id, categoriaId);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  @Put(':id/remove-categoria')
+  @UseGuards(AuthGuard)
+  async removeCategoria(
+    @Param('id') id: string,
+    @Query('categoriaId') categoriaId: string,
+  ): Promise<Documento> {
+    try {
+      return await this.documentoService.removeCategoria(id, categoriaId);
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }

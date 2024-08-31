@@ -142,4 +142,17 @@ export class AssuntoRepository {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
   }
+
+  async findByAssuntoTitle(title: string): Promise<Assunto[]> {
+    try {
+      if (!title) {
+        throw new Error('Título inválido');
+      }
+      return this.assuntoModel
+        .find({ title: { $regex: title, $options: 'i' } })
+        .exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
+  }
 }
