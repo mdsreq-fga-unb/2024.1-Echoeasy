@@ -50,6 +50,7 @@ export default function CriarDocumento() {
       formData.append("title", data.title);
       formData.append("description", data.description);
       if (data.category) formData.append("category", data.category);
+
       if (data.image) formData.append("image", data.image);
 
       await api.post("/documentos", formData, {
