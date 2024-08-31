@@ -2,7 +2,13 @@
 
 import { ContentLayout } from "@/components/content-layout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -12,8 +18,18 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
+import { useGetAllAssuntosByDocumentId } from "@/hooks/useGetAllAssuntosByDocumentId";
 import { useGetDocumentById } from "@/hooks/useGetDocumentById";
 import { api } from "@/services/api";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -40,6 +56,10 @@ export default function EditarDocumento({
     isLoading: isLoadingDocument,
     mutate: refetchDocument,
   } = useGetDocumentById(params.documentId);
+
+  const { data: assuntosList } = useGetAllAssuntosByDocumentId(
+    params.documentId
+  );
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -171,6 +191,58 @@ export default function EditarDocumento({
             </form>
           </Form>
         </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Assuntos</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableCaption>Lista de documentos cadastrados</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Título</TableHead>
+                <TableHead>Descrição</TableHead>
+                <TableHead>Link Algoritmo</TableHead>
+                <TableHead>Ordem</TableHead>
+                <TableHead>Ações</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {assuntosList?.map((assunto: any) => (
+                <TableRow key={assunto._id}>
+                  <TableCell className="font-medium">{assunto.title}</TableCell>
+                  <TableCell>{assunto.description}</TableCell>
+                  <TableCell>{assunto.algorithm_link}</TableCell>
+                  <TableCell>{assunto.order}</TableCell>
+                  <TableCell>
+                    <div className="flex gap-2">
+                      <Button variant="outline" onClick={() => {}}>
+                        Editar
+                      </Button>
+                      <Button variant="destructive" onClick={() => {}}>
+                        Deletar
+                      </Button>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+        <CardFooter>
+          <Button
+            onClick={() =>
+              router.push(`/documentos/${params.documentId}/assunto/criar`)
+            }
+            className="w-full"
+            type="button"
+            variant="outline"
+          >
+            Adicionar Assunto
+          </Button>
+        </CardFooter>
       </Card>
     </ContentLayout>
   );
