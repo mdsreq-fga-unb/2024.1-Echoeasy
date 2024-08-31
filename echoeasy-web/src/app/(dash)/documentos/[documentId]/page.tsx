@@ -142,7 +142,7 @@ export default function EditarDocumento({
 
               <div className="flex flex-col w-fit items-center gap-4">
                 <Image
-                  src={documentData.image}
+                  src={documentData?.image}
                   alt="Imagem do documento"
                   width={200}
                   height={200}
