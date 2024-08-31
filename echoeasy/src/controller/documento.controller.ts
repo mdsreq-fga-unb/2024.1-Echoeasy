@@ -72,6 +72,19 @@ export class DocumentoController {
     }
   }
 
+  @Post('update_photo')
+  @UseInterceptors(FileInterceptor('image'))
+  async updatePhoto(
+    @Query('_id') _id: string,
+    @UploadedFile() file: MulterFile,
+  ): Promise<Documento> {
+    try {
+      return this.documentoService.updatePhoto(_id, file);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
   @Delete('delete')
   @UseGuards(AuthGuard)
   async deleteDocumentoById(

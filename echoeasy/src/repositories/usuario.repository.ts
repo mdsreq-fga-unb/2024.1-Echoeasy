@@ -115,7 +115,7 @@ export class UsuarioRepository {
           HttpStatus.BAD_REQUEST,
         );
       }
-      const fileName = `${Date.now().toString()}_${file.originalname}`;
+      const fileName = `${Date.now().toString()}`;
       const fileUpload = adminStorage.file(fileName);
 
       const stream = fileUpload.createWriteStream({

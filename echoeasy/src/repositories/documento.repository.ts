@@ -102,12 +102,40 @@ export class DocumentoRepository {
     }
   }
 
+  async updatePhoto(_id: string, file: MulterFile): Promise<Documento> {
+    try {
+      if (!file) {
+        throw new HttpException(
+          'Nenhuma imagem enviada',
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+      if (!file.buffer) {
+        throw new HttpException('Imagem inválida', HttpStatus.BAD_REQUEST);
+      }
+      if (!Types.ObjectId.isValid(_id)) {
+        throw new HttpException('ID inválido', HttpStatus.BAD_REQUEST);
+      }
+
+      const imageUrl = await this.uploadImage64(file);
+      return this.documentoModel
+        .findOneAndUpdate(
+          { _id },
+          { image: imageUrl, updatedAt: new Date() },
+          { new: true },
+        )
+        .exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
   async uploadImage64(file: MulterFile): Promise<string> {
     try {
       if (!file) {
         throw new Error('Arquivo inválido');
       }
-      const fileName = `${Date.now().toString()}_${file.originalname}`;
+      const fileName = `${Date.now().toString()}`;
       const fileUpload = adminStorage.file(fileName);
 
       const stream = fileUpload.createWriteStream({

@@ -110,7 +110,7 @@ export class AssuntoRepository {
         throw new Error('Arquivo inválido');
       }
 
-      const fileName = `${Date.now().toString()}_${file.originalname}`;
+      const fileName = `${Date.now().toString()}`;
       const fileUpload = adminStorage.file(fileName);
 
       const stream = fileUpload.createWriteStream({
