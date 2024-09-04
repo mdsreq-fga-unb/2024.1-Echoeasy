@@ -1,4 +1,6 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common';
+import { Types } from 'mongoose';
+import { AlgoritmoCompletoDto } from 'src/dto/AlgoritmoCompletoDto';
 import { AlgoritmoDto } from 'src/dto/AlgoritmoDto';
 import { NodeDto } from 'src/dto/NodeDto';
 import { AlgoritmoRepository } from 'src/repositories/algoritmo.repository';
@@ -34,6 +36,18 @@ export class AlgoritmoService {
       this.logger.log('Finalizando criação de nó...');
 
       return node;
+    } catch (error) {
+      throw new HttpException(error.message, 400);
+    }
+  }
+
+  async listAlgoritmos(_id: Types.ObjectId): Promise<AlgoritmoCompletoDto> {
+    try {
+      this.logger.log('Inicializando listagem de algoritmos...');
+      const algoritmos = await this.algoritmoRepository.listAlgoritmos(_id);
+      this.logger.log('Finalizando listagem de algoritmos...');
+
+      return algoritmos;
     } catch (error) {
       throw new HttpException(error.message, 400);
     }

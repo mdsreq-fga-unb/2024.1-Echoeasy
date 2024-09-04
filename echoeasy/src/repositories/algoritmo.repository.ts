@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
+import { AlgoritmoCompletoDto } from 'src/dto/AlgoritmoCompletoDto';
 import { AlgoritmoDto } from 'src/dto/AlgoritmoDto';
 import { NodeDto } from 'src/dto/NodeDto';
 import { Algoritmo } from 'src/schema/Algoritmo';
@@ -52,6 +53,41 @@ export class AlgoritmoRepository {
       algoritmo.nodes.push(nodeId);
 
       return algoritmo.save();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async listAlgoritmos(_id: Types.ObjectId): Promise<AlgoritmoCompletoDto> {
+    try {
+      const algoritmo = await this.algoritmoModel.findOne({ _id });
+
+      if (!algoritmo) {
+        throw new HttpException(
+          'Algoritmo não encontrado',
+          HttpStatus.NOT_FOUND,
+        );
+      }
+
+      const nodes = await this.listNodesByAlgoritmoId(_id);
+
+      const algoritmoWithNodes = {
+        title: algoritmo.title,
+        description: algoritmo.description,
+        nodes: nodes,
+      };
+
+      return algoritmoWithNodes;
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async listNodesByAlgoritmoId(algoritmoId: Types.ObjectId): Promise<Node[]> {
+    try {
+      return this.nodeModel
+        .find({ algorithm_id: algoritmoId })
+        .sort({ node_id: 1 });
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
