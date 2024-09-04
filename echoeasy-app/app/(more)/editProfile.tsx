@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, View, Alert, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
 import { UsuarioService } from "../../src/service/UsuarioService";
 import {useGlobalContext} from "../../src/context/GlobalProvider";
 import {formatPhoneNumber} from "../../src/utils/formatPhoneNumber";
-import axios from "axios";
+
 
 const EditProfile: React.FC = () => {
-    const {user } = useGlobalContext();
+    const {user,setUser } = useGlobalContext();
     const usuarioService = new UsuarioService();
     const [formData, setFormData] = useState({
         name:  user.name || '',
@@ -27,7 +26,7 @@ const EditProfile: React.FC = () => {
         try {
 
             const response = await usuarioService.editProfile(formData);
-
+            setUser({ ...user, ...formData });
             if (response.status === 200) {
                 Alert.alert('Sucesso', 'Perfil atualizado com sucesso!');
             } else {
