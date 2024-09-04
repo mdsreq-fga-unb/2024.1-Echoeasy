@@ -12,7 +12,7 @@ export class Assunto extends Document {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   image: string;
 
   @Prop({ required: false })

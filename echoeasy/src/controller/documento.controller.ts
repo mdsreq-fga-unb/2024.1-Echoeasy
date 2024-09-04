@@ -75,6 +75,7 @@ export class DocumentoController {
 
   @Post('update_photo')
   @UseInterceptors(FileInterceptor('image'))
+  @UseGuards(AuthGuard)
   async updatePhoto(
     @Query('_id') _id: string,
     @UploadedFile() file: MulterFile,
