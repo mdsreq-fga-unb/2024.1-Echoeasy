@@ -21,8 +21,10 @@ export class AssuntoRepository {
       if (!(await this.validateDocumento(assuntoData.document_id))) {
         throw new Error('Documento não encontrado.');
       }
-      const imageUrl = await this.uploadImage64(file);
-      assuntoData.image = imageUrl;
+      if (file) {
+        const imageUrl = await this.uploadImage64(file);
+        assuntoData.image = imageUrl;
+      }
       const assunto = new this.assuntoModel(assuntoData);
 
       return assunto.save();
