@@ -5,6 +5,7 @@ Este documento trata da verificação e validação do PBB apresentado no estudo
 Abaixo se encontra o miro da equipe e que pode ser visualizado clicando [aqui](https://miro.com/app/board/uXjVKi9_qA4=/)
 
 <iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVKi9_qA4=/?moveToViewport=-20740,-14527,38095,17237&embedId=811286326506" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
 ## 3. Verificação do PBB
 | Pergunta                                                                                     | OK? | Observação |
 | -------------------------------------------------------------------------------------------- | --- | ---------- |
