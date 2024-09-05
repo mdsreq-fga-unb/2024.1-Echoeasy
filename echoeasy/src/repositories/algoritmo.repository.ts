@@ -3,7 +3,9 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { AlgoritmoCompletoDto } from 'src/dto/AlgoritmoCompletoDto';
 import { AlgoritmoDto } from 'src/dto/AlgoritmoDto';
+import { AlgoritmoUpdateDto } from 'src/dto/AlgoritmoUpdateDto';
 import { NodeDto } from 'src/dto/NodeDto';
+import { NodeUpdateDto } from 'src/dto/NodeUpdateDto';
 import { Algoritmo } from 'src/schema/Algoritmo';
 import { Node } from 'src/schema/utils/Node';
 
@@ -36,7 +38,7 @@ export class AlgoritmoRepository {
     }
   }
 
-  async findAlgoritmoById(id: string): Promise<Algoritmo> {
+  async findAlgoritmoById(id: Types.ObjectId): Promise<Algoritmo> {
     try {
       return this.algoritmoModel.findById(id);
     } catch (error) {
@@ -45,14 +47,27 @@ export class AlgoritmoRepository {
   }
 
   async LinkNodeIdToAlgoritmo(
-    algoritmoId: string,
-    nodeId: string,
+    algoritmoId: Types.ObjectId,
+    nodeId: Types.ObjectId,
   ): Promise<Algoritmo> {
     try {
       const algoritmo = await this.findAlgoritmoById(algoritmoId);
       algoritmo.nodes.push(nodeId);
 
       return algoritmo.save();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async UnlinkNodeIdFromAlgoritmo(
+    algoritmoId: Types.ObjectId,
+    nodeId: Types.ObjectId,
+  ): Promise<Algoritmo> {
+    try {
+      const algoritmo = await this.findAlgoritmoById(algoritmoId);
+      algoritmo.nodes = algoritmo.nodes.filter((node) => !node.equals(nodeId));
+      return await algoritmo.save();
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
@@ -88,6 +103,94 @@ export class AlgoritmoRepository {
       return this.nodeModel
         .find({ algorithm_id: algoritmoId })
         .sort({ node_id: 1 });
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async findNodeById(node_id: Types.ObjectId): Promise<Node> {
+    try {
+      return this.nodeModel.findById(node_id);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async listAlgoritmosSemNodes(): Promise<Algoritmo[]> {
+    try {
+      return this.algoritmoModel.find().exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async updateAlgoritmo(algoritmoData: AlgoritmoUpdateDto): Promise<Algoritmo> {
+    try {
+      return this.algoritmoModel.findOneAndUpdate(
+        { _id: algoritmoData._id },
+        algoritmoData,
+        { new: true },
+      );
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async updateOneNode(
+    _id: Types.ObjectId,
+    documentoData: NodeUpdateDto,
+  ): Promise<Node | null> {
+    try {
+      if (!Types.ObjectId.isValid(_id)) {
+        throw new Error('ID inválido');
+      }
+      if (!documentoData) {
+        throw new Error('Dados inválidos');
+      }
+      return this.nodeModel
+        .findOneAndUpdate(
+          {
+            _id,
+          },
+          documentoData,
+          {
+            new: true,
+          },
+        )
+        .exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async deleteAlgoritmo(_id: Types.ObjectId): Promise<Algoritmo> {
+    try {
+      return this.algoritmoModel.findByIdAndDelete(_id);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async deleteNode(node_id: Types.ObjectId): Promise<Node> {
+    try {
+      return this.nodeModel.findByIdAndDelete(node_id);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async deleteManyNodesByAlgorithmId(
+    algorithm_id: Types.ObjectId,
+  ): Promise<Node[]> {
+    try {
+      const nodes = await this.nodeModel.find({ algorithm_id });
+      const response = await this.nodeModel.deleteMany({
+        algorithm_id: algorithm_id,
+      });
+      if (response.deletedCount === 0) {
+        throw new HttpException('Nenhum nó encontrado', HttpStatus.NOT_FOUND);
+      }
+      return nodes;
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }

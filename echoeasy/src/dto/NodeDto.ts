@@ -1,9 +1,10 @@
 import { IsArray, IsString } from 'class-validator';
 import { NodeOptionDto } from './NodeOptionDto';
+import { Types } from 'mongoose';
 
 export class NodeDto {
   @IsString({ message: 'ID do algoritmo inválido' })
-  algorithm_id: string;
+  algorithm_id: Types.ObjectId;
 
   @IsString({ message: 'ID do nó inválido' })
   node_id: string;

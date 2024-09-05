@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 @Schema()
 export class Algoritmo extends Document {
@@ -10,7 +10,7 @@ export class Algoritmo extends Document {
   description: string;
 
   @Prop({ required: true })
-  nodes: [string];
+  nodes: Types.ObjectId[];
 }
 
 export const AlgoritmoSchema = SchemaFactory.createForClass(Algoritmo);

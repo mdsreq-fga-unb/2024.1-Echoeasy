@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 import { NodeOption } from './NodeOption';
 
 @Schema()
 export class Node extends Document {
   @Prop({ required: true })
-  algorithm_id: string;
+  algorithm_id: Types.ObjectId;
 
   @Prop({ required: true })
   node_id: string;
