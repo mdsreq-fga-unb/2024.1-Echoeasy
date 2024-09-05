@@ -150,6 +150,14 @@ export class DocumentoRepository {
       if (!Types.ObjectId.isValid(_id)) {
         throw new Error('ID inválido');
       }
+      const doc = await this.findOneById(_id);
+      if (!doc) {
+        throw new Error('Documento não encontrado');
+      }
+      const image_path = doc.image;
+      if (image_path) {
+        await this.deleteImage(image_path);
+      }
       await this.assuntoRepository.deleteMannyByDocumentId(_id);
       return this.documentoModel.findOneAndDelete({ _id }).exec();
     } catch (error) {
@@ -218,6 +226,26 @@ export class DocumentoRepository {
 
         stream.end(file.buffer);
       });
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async deleteImage(imagePath: string): Promise<boolean> {
+    try {
+      if (!imagePath) {
+        throw new HttpException('Link Inválido', HttpStatus.BAD_REQUEST);
+      }
+
+      const parsedUrl = new URL(imagePath);
+      const relativePath = parsedUrl.pathname.replace(
+        '/echoeasy-539dc.appspot.com/',
+        '',
+      );
+
+      await adminStorage.file(relativePath).delete();
+
+      return true;
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }

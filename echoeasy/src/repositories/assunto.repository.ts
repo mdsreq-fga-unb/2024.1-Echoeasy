@@ -131,17 +131,6 @@ export class AssuntoRepository {
     }
   }
 
-  async deleteOne(_id: string): Promise<Assunto | null> {
-    try {
-      if (!Types.ObjectId.isValid(_id)) {
-        throw new Error('ID inválido');
-      }
-      return this.assuntoModel.findOneAndDelete({ _id }).exec();
-    } catch (error) {
-      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
-    }
-  }
-
   async uploadImage64(file: MulterFile): Promise<string> {
     try {
       if (!file) {
@@ -194,14 +183,56 @@ export class AssuntoRepository {
     }
   }
 
+  async deleteOne(_id: string): Promise<Assunto | null> {
+    try {
+      if (!Types.ObjectId.isValid(_id)) {
+        throw new Error('ID inválido');
+      }
+      const assunto = await this.findOne(_id);
+      if (assunto.image) {
+        await this.deleteImage(assunto.image);
+      }
+      return this.assuntoModel.findOneAndDelete({ _id }).exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
+  }
+
   async deleteMannyByDocumentId(documentId: string): Promise<void> {
     try {
       if (!Types.ObjectId.isValid(documentId)) {
         throw new Error('ID inválido');
       }
+      const assuntos = await this.findByDocumentId(documentId);
+      while (assuntos.length > 0) {
+        const assunto = assuntos.pop();
+        if (assunto.image) {
+          await this.deleteImage(assunto.image);
+        }
+      }
       await this.assuntoModel.deleteMany({ document_id: documentId }).exec();
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
+  }
+
+  async deleteImage(imagePath: string): Promise<boolean> {
+    try {
+      if (!imagePath) {
+        throw new HttpException('Link Inválido', HttpStatus.BAD_REQUEST);
+      }
+
+      const parsedUrl = new URL(imagePath);
+      const relativePath = parsedUrl.pathname.replace(
+        '/echoeasy-539dc.appspot.com/',
+        '',
+      );
+
+      await adminStorage.file(relativePath).delete();
+
+      return true;
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
   }
 }
