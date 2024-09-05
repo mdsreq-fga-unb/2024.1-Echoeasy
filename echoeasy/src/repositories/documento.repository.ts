@@ -5,12 +5,14 @@ import { adminStorage } from 'src/config/firebase-admin';
 import { MulterFile } from 'src/types/File';
 import { DocumentoDto } from '../dto/DocumentoDto';
 import { Documento } from '../schema/Documento';
-
+import { AssuntoRepository } from './assunto.repository';
 @Injectable()
 export class DocumentoRepository {
   constructor(
     @InjectModel(Documento.name)
     private readonly documentoModel: Model<Documento>,
+
+    private readonly assuntoRepository: AssuntoRepository,
   ) {}
 
   async create(
@@ -148,6 +150,7 @@ export class DocumentoRepository {
       if (!Types.ObjectId.isValid(_id)) {
         throw new Error('ID inválido');
       }
+      await this.assuntoRepository.deleteMannyByDocumentId(_id);
       return this.documentoModel.findOneAndDelete({ _id }).exec();
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.NOT_FOUND);

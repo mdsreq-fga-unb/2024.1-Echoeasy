@@ -193,4 +193,15 @@ export class AssuntoRepository {
       throw new HttpException(error.message, HttpStatus.NOT_FOUND);
     }
   }
+
+  async deleteMannyByDocumentId(documentId: string): Promise<void> {
+    try {
+      if (!Types.ObjectId.isValid(documentId)) {
+        throw new Error('ID inválido');
+      }
+      await this.assuntoModel.deleteMany({ document_id: documentId }).exec();
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
+  }
 }
