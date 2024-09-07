@@ -4,13 +4,13 @@
 
 Este documento descreve o processo de priorização e definição do MVP, mostrando a metodologia utilizada e mostrando a lista de funcionalidades escolhidas para compor o MVP
 
-## 2. USM
-
-Para garantir uma entrega de valor e uma priorização adequada das funcionalidades do projeto, utilizamos a metodologia USM (User Story Mapping). Através dessa abordagem, foi possível identificar e organizar as funcionalidades mais críticas e valiosas para o Product Owner, alinhando as prioridades do backlog com os objetivos do produto. Abaixo, na imagem 01, mostramos como o USM foi aplicado para priorizar as funcionalidades encontradas no backlog e como essas funcionalidades foram selecionadas para compor o MVP. As funcionalidades com maior priorização se encontram mais a cima e a esquerda, enquanto as de menor priorização se encontram mais abaixo e para direita.
+## 2. Priorização
+Utilizamos o sistema de pontos para avaliar a complexidade, a viabilidade e o valor de negócio de cada tarefa do backlog. Além disso, adotamos o método MoSCoW para classificar as tarefas em essenciais (Must have), importantes (Should have), desejáveis (Could have) e não essenciais para este ciclo (Won’t have). Essa combinação nos permitiu priorizar eficientemente o trabalho, garantindo foco nas entregas críticas.
 
 <center>
 
-![USM](./assets/imgs/usm.jpg)
+![MosCOw](./assets/imgs/MosCow.png)
+![Priorizacao](./assets/imgs/priorizacao.png)
 
 </center>
 
