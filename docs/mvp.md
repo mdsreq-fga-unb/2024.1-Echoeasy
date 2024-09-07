@@ -11,8 +11,13 @@ Utilizamos o sistema de pontos para avaliar a complexidade, a viabilidade e o va
 
 ![MosCOw](./assets/imgs/MosCow.png)
 ![Priorizacao](./assets/imgs/priorizacao.png)
-
 </center>
+
+### Criterios utilizados para definir a priorização:
+    - Nota >= 9 (Must Have)
+    - Nota >= 7 e Nota < = 8 (Should Have)
+    - Nota >= 5 e Nota <= 6 (Could Have) 
+    - Nota < 5 (Won't Have)
 
 ## 3. MVP
 
