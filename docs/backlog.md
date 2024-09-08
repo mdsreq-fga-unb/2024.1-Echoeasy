@@ -126,8 +126,8 @@ O backlog do projeto é uma lista abrangente de todas as tarefas, funcionalidade
 | EP-04 - Material   | CA04 - Administração        | FE19 - Pesquisar Material                | US20       | Permitir que administradores pesquisem materiais específicos.                           |
 | EP-05 - Relatórios | CA05 -  Análise de Dados    | FE20 - Visualizar relatórios de usuários | US21       | Permitir que administradores visualizem gráficos relacionados aos usuários cadastrados  |
 | EP-05 - Relatórios | CA05 - Análise de Dados     | FE21 - Visualizar relatórios de usuários | US22       | Permitir que administradores visualizem gráficos relacionados aos materiais cadastrados |
-| EP-06 - Visualizar | CA06 - Acesso aos Materiais | FE22 - Visualizar Documentos             | US23       | Permitir ao médico acessar o documento por completo                                     |
-| EP-06 - Visualizar | CA06 - Acesso aos Materiais | FE23 - Pesquisar Material                | US24       | Facilitar o acesso de materiais específicos.                                            |
+| EP-06 - Visualizar | CA06 - Acesso aos Materiais | FE22 - Visualizar Documentos             | US23       | Permitir ao médico acessar um material                                     |
+| EP-06 - Visualizar | CA06 - Acesso aos Materiais | FE23 - Pesquisar Material                | US24       | Permitir que médicos pesquisem materiais específicos.                                   |
 | EP-06 - Visualizar | CA06 - Acesso aos Materiais | FE24 - Favoritar Material                | US25       | Permitir que médicos favoritem materiais para acesso rápido.                            |
 | EP-07 - Algoritmos | CA07 - Consulta Médica      | FE25 - Algoritmos de Diagnóstico         | US26       | Permitir que médicos usem algoritmos para auxílio no diagnóstico.                       |
 
