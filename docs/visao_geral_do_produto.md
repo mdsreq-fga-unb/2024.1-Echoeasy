@@ -17,7 +17,7 @@ científicas em tempo real.
 
 #### 1. Qual é o produto que você se propõe a desenvolver?
 
-Um Aplicativo mobile que é uma biblioteca autoral de resumo de diretrizes médicas e artigos cientificos relevantes na área de ecocardiografia (manuais de condutas ou rotinas), de rápida consulta e atualizados constantemente, com fluxos de algoritmos que facilitam o diagnóstico.
+Um Aplicativo mobile que é uma biblioteca autoral de resumo de diretrizes médicas e artigos cientificos relevantes na área de ecocardiografia (manuais de condutas ou rotinas), de rápida consulta e atualizados constantemente, com fluxos de algoritmos que facilitam o diagnóstico. E que conta com um aplicativo web que seja possivel gerenciar os conteúdos do aplicativo mobile.
 
 #### 2. O que torna este produto diferente dos seus concorrentes?
 
@@ -38,7 +38,7 @@ Residentes e médicos da área de ecocardiografia de todo o Brasil, além da equ
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Para**            | Residentes e médicos da área de ecocardiografia, produtores de conteúdo                                                                                                                |
 | **Quem**            | Médicos e estudantes de área que possuem dificuldade de encontrar informações em conteúdos extensos e se atualizar constantemente                                                      |
-| **O Echoeasy**      | É um aplicativo mobile                                                                                                                                                                 |
+| **O Echoeasy**      | É um aplicativo mobile e web                                                                                                                                                                |
 | **Que**             | Agrupa os conteúdos simplificando o acesso e facilita o diagnóstico por meio do ecocardiograma das mais diversas doenças cardiovasculares                                              |
 | **Ao contrário do** | Whitebook                                                                                                                                                                              |
 | **Nosso produto**   | Irá difundir materiais autorais exclusivos da área de ecocardiografia, resumos, revisão crítica de artigos científicos e diretrizes da área, com exemplos para facilitar o diagnóstico |
@@ -49,19 +49,20 @@ O objetivo é disseminar o conhecimento de forma abrangente, atualizado e práti
 
 ## 4. Tecnologias a Serem Utilizadas
 
-- Frontend: React Native
+- Frontend: Expo (mobile) e Next (web)
 - Backend: Nest.js
-- Deploy: (a definir)
+- Deploy: Render
 - Persistência de dados: MongoDB
-- Testes e CI: Jest, GitActions
+- Testes e CI: (A DEFINIR)
 - Documentação: GitHub Pages, Github, Docsify
-- APIs: (a definir)
-- Ferramentas: VSCode, Docker, Postman, Insomnia
+- APIs: Nest
+- Ferramentas: VSCode, Postman, Git
 
 ## 5. Histórico de revisão
 
-|    Data    | Versão |         Alteração         |                                                                                                                                                    Autor                                                                                                                                                     |
-| :--------: | :----: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| 02/04/2024 | `0.1`  |   Criação do documento    | [Alexandre](https://github.com/zzzBECK), [Arthur](https://github.com/arthur-heleno), [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes), [Pedro Henrique](https://github.com/PedroHhenriq), [Pedro Lucas](https://github.com/lucasdray) e [Tales](https://github.com/TalesRG) |
-| 06/04/2024 | `0.2`  | Tópicos 1.1, 1.2, 1.3 e 3 | [Alexandre](https://github.com/zzzBECK), [Arthur](https://github.com/arthur-heleno), [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes), [Pedro Henrique](https://github.com/PedroHhenriq), [Pedro Lucas](https://github.com/lucasdray) e [Tales](https://github.com/TalesRG) |
-| 16/04/2024 | `0.3`  | Documentação no Git Pages |                                                                                                         [Alexandre](https://github.com/zzzBECK) e [Pedro Henrique](https://github.com/PedroHhenriq)                                                                                                          |
+|    Data    | Versão |                  Alteração                   |                                                                                                                                                    Autor                                                                                                                                                     |
+| :--------: | :----: | :------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 02/04/2024 | `0.1`  |             Criação do documento             | [Alexandre](https://github.com/zzzBECK), [Arthur](https://github.com/arthur-heleno), [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes), [Pedro Henrique](https://github.com/PedroHhenriq), [Pedro Lucas](https://github.com/lucasdray) e [Tales](https://github.com/TalesRG) |
+| 06/04/2024 | `0.2`  |          Tópicos 1.1, 1.2, 1.3 e 3           | [Alexandre](https://github.com/zzzBECK), [Arthur](https://github.com/arthur-heleno), [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes), [Pedro Henrique](https://github.com/PedroHhenriq), [Pedro Lucas](https://github.com/lucasdray) e [Tales](https://github.com/TalesRG) |
+| 16/04/2024 | `0.3`  |          Documentação no Git Pages           |                                                                                                         [Alexandre](https://github.com/zzzBECK) e [Pedro Henrique](https://github.com/PedroHhenriq)                                                                                                          |
+| 09/09/2024 | `1.0`  | Atualização tecnologias e tipo de aplicativo |                                                                                                              [Leandro](https://github.com/LeanArs), [Pedro Lucas](https://github.com/lucasdray)                                                                                                              |

@@ -33,17 +33,18 @@ O processo de Engenharia de Requisitos, definido com auxílio do algoritmo de es
 
 A partir da metodologia e processo definido, foram mapeadas as principais atividades a serem desenvolvidas no projeto, estas estão melhor detalhadas na tabela abaixo e sua relação está melhor expressa no [Fluxo de Trabalho](#2-fluxo-de-trabalho)
 
-|     Nome da Atividade     |                   Método                    |      Ferramenta       |           Entrega            |
-| :-----------------------: | :-----------------------------------------: | :-------------------: | :--------------------------: |
-|  Elicitação e Descoberta  |    Reunião com o cliente e Brainstorming    |      Zoom e Miro      |     Lista de RFs e RNFs      |
-|    Análise e consenso     | Reunião com o cliente, USM e Brainstorming  | Planning Poker Online |         User Stories         |
-|        Declaração         |                  Planning                   |      Zoom e Miro      |     Temas, Épicos e Task     |
-|       Representação       |                Prototipagem                 |         Figma         | Protótipo de alta fidelidade |
-|  Verificação e Validação  | DoR e DoD; Checklist; Reunião com o cliente |  Miro e Trello/Jira   |    Definição de DoR e DoD    |
-| Organização e Atualização |                     USM                     |  Miro e Trello/Jira   |           Backlog            |
+|     Nome da Atividade     |                   Método                    |         Ferramenta          |            Entrega            |
+| :-----------------------: | :-----------------------------------------: | :-------------------------: | :---------------------------: |
+|  Elicitação e Descoberta  |    Reunião com o cliente e Brainstorming    | Zoom, Microsoft Teams, Miro |      Lista de RFs e RNFs      |
+|    Análise e consenso     | Reunião com o cliente, USM e Brainstorming  |           MoSCoW            |         User Stories          |
+|        Declaração         |                  Planning                   |           Discord           |     Temas, Épicos e Task      |
+|       Representação       |                Prototipagem                 |            Figma            | Protótipo de média fidelidade |
+|  Verificação e Validação  | DoR e DoD; Checklist; Reunião com o cliente |    Miro, Microsoft Teams    |    Definição de DoR e DoD     |
+| Organização e Atualização |                     USM                     |          Gitpages           |            Backlog            |
 
 ## 5. Histórico de revisão
 
-|    Data    | Versão |      Alteração       |                  Autor                  |
-| :--------: | :----: | :------------------: | :-------------------------------------: |
-| 16/04/2024 | `0.1`  | Criação do documento | [Alexandre](https://github.com/zzzBECK) |
+|    Data    | Versão |        Alteração         |                                       Autor                                        |
+| :--------: | :----: | :----------------------: | :--------------------------------------------------------------------------------: |
+| 16/04/2024 | `0.1`  |   Criação do documento   |                      [Alexandre](https://github.com/zzzBECK)                       |
+| 09/09/2024 | `1.0`  | Alteração das atividades | [Leandro](https://github.com/LeanArs), [Pedro Lucas](https://github.com/lucasdray) |

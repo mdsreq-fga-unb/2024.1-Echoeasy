@@ -263,53 +263,6 @@ ser desenterradas e contadas mais uma vez.
 
 <center>
 
-### Lex Lester Lexhorn
-
-</center>
-
-<br>
-
-<div style="overflow: auto;">
-  <img id="img-personagens" src="https://raw.githubusercontent.com/mdsreq-fga-unb/2024.1-Echoeasy/gitpages/docs/assets/imgs/LesterLexhorn.jpeg" >
-  
-  <p>1. Sobrevivente da invasão da SparkTech em Uranus <br>
-     2. Perda trágica da família durante a invasão <br>
-     3. Recrutado pela Space Edge após a tragédia <br>
-     4. Determinado a buscar vingança contra a SparkTech <br>
-     5. Comprometido com a exploração e a busca por um novo começo entre as estrelas <br>
-     Origem: planeta Uranus-6 sext.
-  
-  
-  </p>
-</div>
-
-#### História:
-
-No início do século 30 d.c. os cientistas, pesquisadores e médicos habitantes do
-planeta Uranus-6sext, que fica a 6 sextilhões de anos-luz de Uranus, desenvolveram
-a cura de todas as doenças consideradas incuráveis, como câncer e Alzheimer. No
-entanto, ao aplicarem tal cura milagrosa em toda a população planetária de
-Uranus-6sext, como efeito colateral, todos os habitantes do planeta passaram a
-possuir chifres nas cabeças.
-
-Um dia, em 3257, a Spark Tech em associação com o Apache invadiu Uranus-6sext.
-Interessada em se apropriar da tecnologia médica Uranus-6sext-ense, ela ordenou a
-aniquilação de todo o povo e a tomada à força da tecnologia.
-
-Neste cenário encontra-se Lex, um jovem Uranos-6sextano de 19 anos que levantou
-cedo de sua cama em sua humilde residência, somente para descobrir que seu
-planeta estava sendo invadido e destruído. Por sorte, foi resgatado pela Space Edge,
-que estava à procura de novos recrutas e chegou no planeta no exato instante da
-invasão. Sua família inteira não sobreviveu.
-
-Desde então, com sua vida e moral destruídas por pura ganância corporativa, Lex,
-juntamente aos exploradores da Space Edge, procura ajudar como pode a explorar
-novas fronteiras, ao mesmo tempo em que jura vingança àqueles que lhe tiraram não
-só sua família, mas também a maior riqueza de seu planeta.
-
----
-
-<center>
 
 ### Lorde Lhoyd Pickard
 
@@ -362,50 +315,11 @@ lar, mas por um propósito maior.
 
 ---
 
-<center>
 
-### Ethan Drake "O novato"
-
-</center>
-
-<br>
-
-<div style="overflow: auto;">
-  <img id="img-personagens" src="https://raw.githubusercontent.com/mdsreq-fga-unb/2024.1-Echoeasy/gitpages/docs/assets/imgs/Ethan Drake.jfif" >
-  
-  <p>1. Explorador nato <br>
-     2. Vagante do espaço <br>
-     3. Dom da barganha herdado do pai<br>
-     4. Entrou na Space Edge após a equipe ter sido recrutada <br>
-     5. Corajoso <br>
-     Origem: planeta Vesser.
-  
-  
-  </p>
-</div>
-
-#### História:
-
-Ethan Drake cresceu sob o céu estrelado de Vesser, onde as histórias de seu pai
-sobre os confins do espaço despertaram uma curiosidade inexplicável dentro dele.
-Seu pai, um mercador nômade com um olho afiado para a tecnologia perdida, guiou
-Ethan através das vastidões do cosmos, ensinando-lhe não apenas sobre os
-segredos do comércio intergaláctico, mas também sobre coragem e resiliência.
-Desta forma, as viagens interplanetárias moldaram o caráter de Ethan, incutindo nele
-um desejo ardente de desvendar os mistérios que aguardavam além dos limites
-conhecidos.
-
-Determinado a seguir os passos de seu pai e explorar o desconhecido, Ethan
-embarcou em sua própria jornada pelo espaço. Assim, movido pela promessa de
-aventura e descoberta, ele viajou por sistemas estelares distantes, enfrentando
-perigos que desafiavam sua coragem. Desta maneira, foi durante uma dessas
-aventuras que ele ouviu falar de um célebre grupo de exploradores conhecido como
-Space Edge. Intrigado pelas histórias de suas façanhas e conquistas
-extraordinárias, Ethan soube instantaneamente que seu destino estava entrelaçado
-com o deles.
 
 ## 3. Historico de revisão
 
-|    Data    | Versão |              Descrição              |                      Autor(es)                      |
-| :--------: | :----: | :---------------------------------: | :-------------------------------------------------: |
-| 17/04/2024 | `0.1`  | Criação e Estruturação do documento | [Pedro Lucas Dourado](https://github.com/lucasdray) |
+|    Data    | Versão |                  Descrição                  |                      Autor(es)                      |
+| :--------: | :----: | :-----------------------------------------: | :-------------------------------------------------: |
+| 17/04/2024 | `0.1`  |     Criação e Estruturação do documento     | [Pedro Lucas Dourado](https://github.com/lucasdray) |
+| 09/09/2024 | `1.0`  | Remoção dos membros que trancaram a matéria | [Pedro Lucas Dourado](https://github.com/lucasdray) |
