@@ -7,7 +7,6 @@
   - [Processo de Desenvolvimento](./processo_de_desenvolvimento/processo_de_desenvolvimento.md)
   - [DoR](./processo_de_desenvolvimento/DoR.md)
   - [DoD](./processo_de_desenvolvimento/DoD.md)
-- [Lições Aprendidas](./licoes_aprendidas.md)
 - [Backlog](./backlog.md)
 - [MVP](./mvp.md)
 - [Registros](#)
@@ -35,4 +34,5 @@
     - [BDD (Exercício)]()
     - [USM (Exercício)]()
     - [MVP (apk e deploy)](./entregas/missao_04/apk_deploy.md)
+- [Lições Aprendidas](./licoes_aprendidas.md)
 - [Referências Bibliográficas](./referencias.md)
