@@ -17,20 +17,21 @@ Apesar do XP ser o processo mais pontuado pelo framework, optamos por utilizar o
 ## 2. Planejamento de requisitos
 Fase focada em encontrar, extrair, obter ou provocar uma resposta, reação, informação dos usuários para construção dos requisitos, analisar os requisitos brutos e conciliar os interesses dos stakeholders, além de comunicar os requisitos para os interessados em diferentes níveis de glanularidade e dividindo entre funcionais e não funcionais. (MARSICANO, 2023).
 
-|     Nome da Atividade     |                              Método                              |      Ferramenta       |                      Entrega                      |
-|:-------------------------:|:----------------------------------------------------------------:|:---------------------:|:-------------------------------------------------:|
-|  Elicitação e Descoberta  |             Entrevista com o cliente e Brainstorming             | Microsoft Teams, Miro |                Lista de RFs e RNFs                |
-|    Análise e consenso     |                              MosCoW                              |  Miro, Google Sheets  |                   User Stories                    |
-|        Declaração         |                      Critérios de aceitação                      |       GitPages        | Temas, Épicos, Capacitade, Feature e User Stories |
-|       Representação       |                           Prototipagem                           |         Figma         |           Protótipo de média fidelidade           |
-|  Verificação e Validação  | DoR e DoD; Checklist; Feedback do cliente; Reunião com o cliente | Miro, Microsoft Teams |              Definição de DoR e DoD               |
-| Organização e Atualização |                           Backlog SAFe                           |       Gitpages        |                      Backlog                      |
+|     Nome da Atividade     |                              Método                              |      Ferramenta       |            Entrega            |
+|:-------------------------:|:----------------------------------------------------------------:|:---------------------:|:-----------------------------:|
+|  Elicitação e Descoberta  |             Entrevista com o cliente e Brainstorming             | Microsoft Teams, Miro |      Lista de RFs e RNFs      |
+|    Análise e consenso     |           Entrevista com o cliente e Brainstorming               |  Miro, Google Sheets  |         User Stories          |
+|        Declaração         |                            User Story                            |    GitPages, Miro     |    Lista de User Stories      |
+|       Representação       |                           Prototipagem                           |         Figma         | Protótipo de média fidelidade |
+|  Verificação e Validação  | DoR e DoD; Checklist; Feedback do cliente; Reunião com o cliente | Miro, Microsoft Teams |    Definição de DoR e DoD     |
+| Organização e Atualização |                   SAFe,Tabela de Pontos,MosCow                   |     Gitpages,Miro     |      Backlog  Priorizado      |
 
+## 3. Fluxo de Trabalho 
 <center>
-    <img id= "fluxo" src= "./assets/imgs/atvEngenahriaRequisitos.png">
+    <img id= "fluxo" src= "./assets/imgs/Fluxo_de_Trabalho.jpg">
 </center>
 
-## 3. Processo de ER
+## 4. Processo de ER
 
 O processo de Engenharia de Requisitos, definido com auxílio do algoritmo de escolha apresentado pelo Handbook [#4](./referencias.md#1-referência-bibliográficas), segue como base o mesmo contexto apresentado anteriormente. Como características principais a se destacar estão o alvo que é um cliente específico, propósito exploratório de requisitos e tempo seccionado em iterações com tempo definido, o participativo é o que melhor se encaixa as nuances do projeto prosposto.
 
