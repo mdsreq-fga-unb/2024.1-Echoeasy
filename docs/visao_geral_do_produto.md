@@ -53,7 +53,6 @@ O objetivo é disseminar o conhecimento de forma abrangente, atualizado e práti
 - Backend: Nest.js
 - Deploy: Render
 - Persistência de dados: MongoDB
-- Testes e CI: (A DEFINIR)
 - Documentação: GitHub Pages, Github, Docsify
 - APIs: Nest
 - Ferramentas: VSCode, Postman, Git
@@ -61,8 +60,9 @@ O objetivo é disseminar o conhecimento de forma abrangente, atualizado e práti
 ## 5. Histórico de revisão
 
 |    Data    | Versão |                  Alteração                   |                                                                                                                                                    Autor                                                                                                                                                     |
-| :--------: | :----: | :------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|:----------:|:------:|:--------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 02/04/2024 | `0.1`  |             Criação do documento             | [Alexandre](https://github.com/zzzBECK), [Arthur](https://github.com/arthur-heleno), [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes), [Pedro Henrique](https://github.com/PedroHhenriq), [Pedro Lucas](https://github.com/lucasdray) e [Tales](https://github.com/TalesRG) |
 | 06/04/2024 | `0.2`  |          Tópicos 1.1, 1.2, 1.3 e 3           | [Alexandre](https://github.com/zzzBECK), [Arthur](https://github.com/arthur-heleno), [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes), [Pedro Henrique](https://github.com/PedroHhenriq), [Pedro Lucas](https://github.com/lucasdray) e [Tales](https://github.com/TalesRG) |
 | 16/04/2024 | `0.3`  |          Documentação no Git Pages           |                                                                                                         [Alexandre](https://github.com/zzzBECK) e [Pedro Henrique](https://github.com/PedroHhenriq)                                                                                                          |
-| 09/09/2024 | `1.0`  | Atualização tecnologias e tipo de aplicativo |                                                                                                              [Leandro](https://github.com/LeanArs), [Pedro Lucas](https://github.com/lucasdray)                                                                                                              |
+| 09/09/2024 | `0.4`  | Atualização tecnologias e tipo de aplicativo |                                                                                                              [Leandro](https://github.com/LeanArs), [Pedro Lucas](https://github.com/lucasdray)                                                                                                              |
+| 09/09/2024 | `0.5`  |            Ajuste das tecnologias            |                                                                                                              [Leandro](https://github.com/LeanArs), [Pedro Lucas](https://github.com/lucasdray)                                                                                                              |

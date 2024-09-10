@@ -6,45 +6,44 @@ Após análise em equipe, guiados pelo Framework de Gupta, escolhemos:
 
 - **Abordagem de desenvolvimento**: Ágil
 - **Ciclo de Vida**: Ágil
-- **Processo**: XP
+- **Processo**: XP adaptado
+
+Apesar do XP ser o processo mais pontuado pelo framework, optamos por utilizar o XP de forma adaptada, já que não seguiremos todos os seus rituais. Por exemplo, a priorização foi feita utilizando MOSCOW ao invés de planning poker, utilização apenas de testes de sistema, e a validação do sistema está sendo feita por meio de feedback direto do cliente.
 
 <center>
     <img id= "gupta" src= "https://raw.githubusercontent.com/mdsreq-fga-unb/2024.1-Echoeasy/gitpages/docs/assets/imgs/Gupta.png">
 </center>
 
-## 2. Fluxo de Trabalho
+## 2. Planejamento de requisitos
+Fase focada em encontrar, extrair, obter ou provocar uma resposta, reação, informação dos usuários para construção dos requisitos, analisar os requisitos brutos e conciliar os interesses dos stakeholders, além de comunicar os requisitos para os interessados em diferentes níveis de glanularidade e dividindo entre funcionais e não funcionais. (MARSICANO, 2023).
 
-Os processos de planejamento da equipe são suportadas pelo Scrum, com reuniões semanais e contato contínuo com o cliente, tal processo preve uma declaração de requisitos exploratória em que granulação é gradual e pogressiva. Com isso em mente, para desenvolvimento da [atividade](#4-atividades) de Elicitação e Descoberta utilizaremos Discord e Whatsapp como meio de comunicação para reuniões síncronas e assíncronas, entre os membros da equipe. Se tratando do relacionamento com a cliente, pelo fato do discord não possuir uma ferramenta de gravação nativa e falta de familiaridade da cliente com a plataforma, a melhor opção foi a plataforma ZOOM no caso de reuniões síncronas. Estas ferramentas tem como característica o acesso rápido, e fácil, suportando a necessidade de contato contínuo da equipe pela característica volátil do processo ágil.
-Com relação as demais [atividades](#4-atividades) faz-se presente o GitHub, centro operacional do projeto, nesta ferramenta é disponibilizada toda a documentação de projeto, desde a declaração do problema até a solução codificada. Além deste também utilizaremos o miro para método de brainstorm, Figma para o método de prototipagem e USM para priorização.
+|     Nome da Atividade     |                              Método                              |      Ferramenta       |                      Entrega                      |
+|:-------------------------:|:----------------------------------------------------------------:|:---------------------:|:-------------------------------------------------:|
+|  Elicitação e Descoberta  |             Entrevista com o cliente e Brainstorming             | Microsoft Teams, Miro |                Lista de RFs e RNFs                |
+|    Análise e consenso     |                              MosCoW                              |  Miro, Google Sheets  |                   User Stories                    |
+|        Declaração         |                      Critérios de aceitação                      |       GitPages        | Temas, Épicos, Capacitade, Feature e User Stories |
+|       Representação       |                           Prototipagem                           |         Figma         |           Protótipo de média fidelidade           |
+|  Verificação e Validação  | DoR e DoD; Checklist; Feedback do cliente; Reunião com o cliente | Miro, Microsoft Teams |              Definição de DoR e DoD               |
+| Organização e Atualização |                           Backlog SAFe                           |       Gitpages        |                      Backlog                      |
 
 <center>
-    <img id= "fluxo" src= "https://raw.githubusercontent.com/mdsreq-fga-unb/2024.1-Echoeasy/gitpages/docs/assets/imgs/Fluxo_de_Trabalho.jpg">
+    <img id= "fluxo" src= "./assets/imgs/atvEngenahriaRequisitos.png">
 </center>
 
 ## 3. Processo de ER
 
-O processo de Engenharia de Requisitos, definido com auxílio do algoritmo de escolha apresentado pelo Handbook [#4](./referencias.md#1-referência-bibliográficas), segue como base o mesmo contexto apresentado anteriormente. Como características principais a se destacar estão o alvo que é um cliente específico, propósito exploratório de requisitos e tempo seccionado em sprints com tempo definido, o participativo é o que melhor se encaixa as nuances do projeto prosposto.
+O processo de Engenharia de Requisitos, definido com auxílio do algoritmo de escolha apresentado pelo Handbook [#4](./referencias.md#1-referência-bibliográficas), segue como base o mesmo contexto apresentado anteriormente. Como características principais a se destacar estão o alvo que é um cliente específico, propósito exploratório de requisitos e tempo seccionado em iterações com tempo definido, o participativo é o que melhor se encaixa as nuances do projeto prosposto.
 
 <center>
     <img id= "processo" width="100%" src= "https://raw.githubusercontent.com/mdsreq-fga-unb/2024.1-Echoeasy/gitpages/docs/assets/imgs/Processo de ER.png">
 </center>
 
-## 4. Atividades
 
-A partir da metodologia e processo definido, foram mapeadas as principais atividades a serem desenvolvidas no projeto, estas estão melhor detalhadas na tabela abaixo e sua relação está melhor expressa no [Fluxo de Trabalho](#2-fluxo-de-trabalho)
-
-|     Nome da Atividade     |                   Método                    |         Ferramenta          |            Entrega            |
-| :-----------------------: | :-----------------------------------------: | :-------------------------: | :---------------------------: |
-|  Elicitação e Descoberta  |    Reunião com o cliente e Brainstorming    | Zoom, Microsoft Teams, Miro |      Lista de RFs e RNFs      |
-|    Análise e consenso     | Reunião com o cliente, USM e Brainstorming  |           MoSCoW            |         User Stories          |
-|        Declaração         |                  Planning                   |           Discord           |     Temas, Épicos e Task      |
-|       Representação       |                Prototipagem                 |            Figma            | Protótipo de média fidelidade |
-|  Verificação e Validação  | DoR e DoD; Checklist; Reunião com o cliente |    Miro, Microsoft Teams    |    Definição de DoR e DoD     |
-| Organização e Atualização |                     USM                     |          Gitpages           |            Backlog            |
 
 ## 5. Histórico de revisão
 
-|    Data    | Versão |        Alteração         |                                       Autor                                        |
-| :--------: | :----: | :----------------------: | :--------------------------------------------------------------------------------: |
-| 16/04/2024 | `0.1`  |   Criação do documento   |                      [Alexandre](https://github.com/zzzBECK)                       |
-| 09/09/2024 | `1.0`  | Alteração das atividades | [Leandro](https://github.com/LeanArs), [Pedro Lucas](https://github.com/lucasdray) |
+|    Data    | Versão |                 Alteração                  |                                       Autor                                        |
+|:----------:|:------:|:------------------------------------------:|:----------------------------------------------------------------------------------:|
+| 16/04/2024 | `0.1`  |            Criação do documento            |                      [Alexandre](https://github.com/zzzBECK)                       |
+| 09/09/2024 | `0.2`  |          Alteração das atividades          | [Leandro](https://github.com/LeanArs), [Pedro Lucas](https://github.com/lucasdray) |
+| 09/09/2024 | `0.3`  | Readequação do processo de desenvolvimento |                       [Leandro](https://github.com/LeanArs)                        |
