@@ -52,9 +52,9 @@ O objetivo é disseminar o conhecimento de forma abrangente, atualizado e práti
 - Frontend: Expo (mobile) e Next (web)
 - Backend: Nest.js
 - Deploy: Render
-- Persistência de dados: MongoDB
+- Persistência de dados: MongoDB, Firebase
 - Documentação: GitHub Pages, Github, Docsify
-- APIs: Nest
+- APIs: Nest, Botpress
 - Ferramentas: VSCode, Postman, Git
 
 ## 5. Histórico de revisão
