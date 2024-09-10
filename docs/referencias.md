@@ -8,8 +8,13 @@
 
 1. Handbook IREB CPRE Foundation Level, Version 1.1.0, september 2022.
 
+1. SOMMERVILLE, Ian. Engenharia de Software. 9. ed. São Paulo: Pearson Prentice Hall, 2011.
+
+1. BECK, K.; ANDRES, C. Extreme Programming Explained: Embrace Change. Addison-Wesley Professional, 2000.
+
 ## 2. Histórico de revisão
 
-|    Data    | Versão |      Alteração       |                                                                                                                                                    Autor                                                                                                                                                     |
-| :--------: | :----: | :------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| 17/04/2024 | `0.1`  | Criação do documento | [Alexandre](https://github.com/zzzBECK), [Arthur](https://github.com/arthur-heleno), [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes), [Pedro Henrique](https://github.com/PedroHhenriq), [Pedro Lucas](https://github.com/lucasdray) e [Tales](https://github.com/TalesRG) |
+|    Data    | Versão |          Alteração          |                                                                                                                                                    Autor                                                                                                                                                     |
+| :--------: | :----: | :-------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 17/04/2024 | `0.1`  |    Criação do documento     | [Alexandre](https://github.com/zzzBECK), [Arthur](https://github.com/arthur-heleno), [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes), [Pedro Henrique](https://github.com/PedroHhenriq), [Pedro Lucas](https://github.com/lucasdray) e [Tales](https://github.com/TalesRG) |
+| 09/09/2024 | `0.2`  | Atualização das referências |                                                                                                                                  [Lucas](https://github.com/LucasGSAntunes)                                                                                                                                  |
