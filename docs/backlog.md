@@ -15,11 +15,11 @@ Requisitos funcionais descrevem as funcionalidades e as ações que um sistema o
 **Tabela 01** - Requisitos Funcionais
 
 |  N°  |                                            Descrição                                            |
-| :--: | :---------------------------------------------------------------------------------------------: |
+|:----:|:-----------------------------------------------------------------------------------------------:|
 | RF01 |                        O sistema deverá ser capaz de enviar notificações                        |
 | RF02 |                      O sistema deverá verificar o pagamento da assinatura                       |
 | RF03 |                 O usuário administrador deverá ser capaz de gerenciar usuários                  |
-| RF04 |                O usuário administrador deverá ser capaz de gerenciar os material                |
+| RF04 |               O usuário administrador deverá ser capaz de gerenciar os materiais                |
 | RF05 |                O usuário administrador deverá ser capaz de visualizar relatórios                |
 | RF06 |           Os usuários (médico e administrador) deverão ser capazes de realizar login            |
 | RF07 | Os usuários (médico e administrador) deverão ser capazes de editar suas informações cadastradas |
