@@ -27,7 +27,7 @@
     - [Entrega Final Missão 3](./entregas/missao_03/entrega_final.md)
   - [Missão 4](#)
     - [Entrega do MVP para o cliente](./entregas/missao_04/validacao_cliente.md)
-    - [Entrega Final Missão 4]()
+    - [Vídeo de apresentação do produto](./entregas/missao_04/produto.md)
     - [Exercícios](#)
       - [Space Edge](./entregas/missao_04/usm_pbb.md)
       - [Ordem dos Caçadores Cósmicos](./entregas/missao_04/ver_val/occ.md)
