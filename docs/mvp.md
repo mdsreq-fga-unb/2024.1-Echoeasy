@@ -9,22 +9,22 @@ Utilizamos o sistema de pontos para avaliar a complexidade, a viabilidade e o va
 
 <center>
 
-## MosCow
+## 2.1 MosCow
 
 ![MosCOw](./assets/imgs/MosCow.png)
 
-## Tabala de Pontos
+## 2.2 Tabala de Pontos
 ![Priorizacao](./assets/imgs/priorizacao.png)
 </center>
 
 
-## Miro Contendo a Priorização (Tabela de Pontos e MosCow)
+## 2.3 Miro Contendo a Priorização (Tabela de Pontos e MosCow)
 Abaixo se encontra o miro que pode ser visualizado clicando [aqui](https://miro.com/welcomeonboard/eW9PVXJFcVAwNlJDdUhwTUd4b2ZuNVk0QkxGNzFFaXFYSVZLMFhLeWxUQkNIMUF5ekttUFc1eEVkNWozZnZDZHwzMDc0NDU3MzYyOTQyNDYzNTMxfDI=?share_link_id=810399639819)
 
 
 <iframe width="768" height="432" src="https://miro.com/welcomeonboard/eW9PVXJFcVAwNlJDdUhwTUd4b2ZuNVk0QkxGNzFFaXFYSVZLMFhLeWxUQkNIMUF5ekttUFc1eEVkNWozZnZDZHwzMDc0NDU3MzYyOTQyNDYzNTMxfDI=?share_link_id=298669973303" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
-### Criterios utilizados para definir a priorização:
+### 2.4 Criterios utilizados para definir a priorização:
     - Nota >= 8 (Must Have)
     - Nota = 7  (Should Have)
     - Nota >= 5 e Nota <= 6 (Could Have) 
@@ -75,3 +75,4 @@ O MVP foi cuidadosamente planejado para incluir as funcionalidades essenciais qu
 | 31/07/2024 | `0.2`  | Adição dos tópicos USM e MVP                        | [Alexandre Beck](https://github.com/zzzBECK), [Leandro Almeida](https://github.com/leanars), [Lucas Antunes](https://github.com/LucasGSAntunes) e [Pedro Lucas](https://github.com/lucasdray) |
 | 02/09/2024 | `0.3`  | Adicionando MosCow e Tabela de Priorição por pontos | [Tales Rodrigues](https://github.com/TalesRG)|
 | 08/09/2024 | `0.4`  | Corrigindo MVP para seguir a estrutura do SAFe      | [Tales Rodrigues](https://github.com/TalesRG)|
+| 09/09/2024 | `0.5`  | Corrigindo Moscow e Tabela de Pontos                | [Tales Rodrigues](https://github.com/TalesRG)|
