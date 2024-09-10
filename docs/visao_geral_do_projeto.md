@@ -18,12 +18,12 @@
 
 ## 3. Matriz de Comunicação
 
-|                  Descrição                  |      Área/Envolvidos       | Periodicidade |                Produtos Gerados                 | Local de Disponibilização |
-|:-------------------------------------------:|:--------------------------:|:-------------:|:-----------------------------------------------:|:-------------------------:|
-| Acompanhamento das Atividades em Andamento  |           Equipe           |    Semanal    |         Atualização da label das issues         |          GitHub           |
-| Acompanhamento dos Riscos e Ações Pendentes |           Equipe           |    Diário     |                     Issues                      |          GitHub           |
-|                Planejamento                 |     Equipe, Professor      |   Quinzenal   |    Documentação de Planejamento da Iteração     |          GitHub           |
-|                Retrospectiva                | Equipe, Professor, Cliente |   Quinzenal   | Documentação de Review e Relatório de Progresso |          GitHub           |
+|                  Descrição                  |      Área/Envolvidos       |                          Periodicidade                           |                Produtos Gerados                 | Local de Disponibilização |
+|:-------------------------------------------:|:--------------------------:|:----------------------------------------------------------------:|:-----------------------------------------------:|:-------------------------:|
+|           Reunião de alinhamento            |      Equipe e cliente      | Semanal, mas variável de acordo com a disponibilidade de cliente |               Gravação da reunião               |          GitHub           |
+| Acompanhamento dos Riscos e Ações Pendentes |           Equipe           |                              Diário                              |                     Issues                      |          GitHub           |
+|                Planejamento                 |     Equipe, Professor      |                            Quinzenal                             |    Documentação de Planejamento da Iteração     |          GitHub           |
+|                Retrospectiva                | Equipe, Professor, Cliente |                            Quinzenal                             | Documentação de Review e Relatório de Progresso |          GitHub           |
 
 ## 4. Gerenciamento de Riscos
 
@@ -60,3 +60,4 @@ Em um projeto é essencial estar preparado para realizar ajustes e replanejament
 | 20/08/2024 | `0.4`  |                          Alteração do Planejamento das fases                          |                                                                                                                                    [Leandro](https://github.com/LeanArs)                                                                                                                                     |
 | 09/09/2024 | `0.5`  | Alteração na tabela de organização, planejamento de sprints e gerenciamento de riscos |                                                                                                              [Leandro](https://github.com/LeanArs), [Pedro Lucas](https://github.com/lucasdray)                                                                                                              |
 | 09/09/2024 | `0.6`  |                         Readequação da visão geral do projeto                         |                                                                                                              [Leandro](https://github.com/LeanArs), [Lucas](https://github.com/LucasGSAntunes)                                                                                                               |
+| 10/09/2024 | `0.7`  |                         Modificação da matriz de comunicação                          |                                                                                                                                    [Leandro](https://github.com/LeanArs)                                                                                                                                     |
