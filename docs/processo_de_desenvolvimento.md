@@ -8,7 +8,19 @@ Após análise em equipe, guiados pelo Framework de Gupta, escolhemos:
 - **Ciclo de Vida**: Ágil
 - **Processo**: XP adaptado
 
-Apesar do XP ser o processo mais pontuado pelo framework, optamos por utilizar o XP de forma adaptada, já que não seguiremos todos os seus rituais. Por exemplo, a priorização foi feita utilizando MOSCOW ao invés de planning poker, utilização apenas de testes de sistema, e a validação do sistema está sendo feita por meio de feedback direto do cliente.
+Apesar do XP ser o processo mais pontuado pelo framework, optamos por utilizar o XP de forma adaptada, já que não seguiremos todos os seus rituais. 
+
+|    Rituais utilizados    |   Rituais não utilizados   |
+| :----------------------: | :------------------------: |
+| Planejamento incremental |     Ritmo sustentável      |
+|    Pequenos releases     |      Cliente no Local      |
+|     Projeto simples      | Desenvolvimento Test-First |
+|       Refatoração        |                            |
+|   Programação em pares   |                            |
+|   Propriedade coletiva   |                            |
+|   Integração contínua    |                            |
+
+
 
 <center>
     <img id= "gupta" src= "https://raw.githubusercontent.com/mdsreq-fga-unb/2024.1-Echoeasy/gitpages/docs/assets/imgs/Gupta.png">
