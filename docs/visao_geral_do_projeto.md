@@ -9,32 +9,12 @@
 |        Cliente        |   Define os requisitos do sistema fornecendo direção e feedback contínuo para a equipe de desenvolvimento   |              Adenalva Beck              |                                                                                             George Marsicano                                                                                             |
 |         Coach         |               Oferece orientação e suporte para a equipe na implementação das práticas do XP                |            George Marsicano             |                                                                                              Pedro Henrique                                                                                              |
 
-## 2. Planejamento das Fases e/ou Iterações do Projeto (REVISAR)
+## 2. Planejamento e Iterações do Projeto
 
-|  Iteração  | Data Início |  Data Fim  |    N° US     |                         Produto (Entrega)                         |
-| :--------: | :---------: | :--------: | :----------: | :---------------------------------------------------------------: |
-| Iteração 1 | 01/08/2024  | 13/08/2024 |    US-01     |            Permitir o registro de médicos no sistema.             |
-|            |             |            | US-02, US-03 |        Permitir que médicos e administradores façam login.        |
-|            |             |            |    US-07     |         Permitir a criação de contas de administradores.          |
-| Iteração 2 | 13/08/2024  | 27/08/2024 |    US-08     |     Permitir que administradores listem usuários do sistema.      |
-|            |             |            |    US-09     |           Permitir que administradores editem usuários.           |
-|            |             |            |    US-10     |          Permitir que administradores excluam usuários.           |
-|            |             |            |    US-11     |         Permitir que administradores pesquisem usuários.          |
-|            |             |            |    US-12     |           Permitir a criação de documentos de conteúdo.           |
-|            |             |            |    US-13     |          Permitir que administradores listem documentos.          |
-|            |             |            |    US-15     |         Permitir que administradores excluam documentos.          |
-|            |             |            |    US-14     |          Permitir que administradores editem documentos.          |
-|            |             |            |    US-16     |   Permitir a criação de assuntos complementares aos documentos.   |
-|            |             |            |    US-17     |    Permitir que administradores listem assuntos de documentos.    |
-|            |             |            |    US-18     |           Permitir que administradores editem assuntos.           |
-|            |             |            |    US-19     |          Permitir que administradores excluam assuntos.           |
-| Iteração 3 | 27/08/2024  | 10/09/2024 |    US-04     |          Permitir que os usuários redefinam suas senhas.          |
-|            |             |            |    US-05     |   Permitir que os usuários editem suas informações cadastradas.   |
-|            |             |            |    US-20     |   Permitir que administradores pesquisem materiais específicos.   |
-|            |             |            |    US-23     |              Permitir ao médico acessar um material               |
-|            |             |            |    US-24     |       Permitir que médicos pesquisem materiais específicos.       |
-|            |             |            |    US-26     | Permitir que médicos usem algoritmos para auxílio no diagnóstico. |
-|            |             |            |              |      Teste de Sistema, Correção de bugs, documentação final       |
+|             Iteração              | Data Início |  Data Fim  | Produto (Entrega) |
+|:---------------------------------:|:-----------:|:----------:|:-----------------:|
+| Iteração para primeiro lançamento | 10/08/2024  | 08/09/2024 |        MVP        |
+
 
 ## 3. Matriz de Comunicação
 
