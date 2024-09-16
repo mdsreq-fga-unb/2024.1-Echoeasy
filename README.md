@@ -1,14 +1,21 @@
 # 2024.1 - Space Edge - Echoeasy
 
+<img id= "logo" width="400px" src= "https://raw.githubusercontent.com/mdsreq-fga-unb/2024.1-Echoeasy/gitpages/docs/assets/imgs/brasao.jpg">
+
 Repositório de projeto da disciplina de REQ-T2.
 
-<img id= "logo" width="400px" src= "https://raw.githubusercontent.com/mdsreq-fga-unb/2024.1-Echoeasy/gitpages/docs/assets/imgs/brasao.jpg">
+
 
 ## 1. Introdução
 
 O projeto Echoeasy é um projeto desenvolvido pela equipe "Space Edge" durante a disciplina de Requisitos de Software durante o semestre 2024.2. A ideia do projeto é criar um aplicativo mobile que agrupa os conteúdos autorais da nossa cliente facilitando o diagnóstico por meio do ecocardiograma das mais diversas doenças cardiovasculares. Mais informações disponíveis na [Visão Geral do Produto](https://mdsreq-fga-unb.github.io/2024.1-Echoeasy/#/./visao_geral_do_produto).
 
-## 2. Equipe
+## 2. Acesso ao aplicativo
+A aplicação mobile pode ser baixada clicando [aqui](https://drive.google.com/file/d/1gFu3sVw3ZKxtHGouUpQpQ2NUITKwXKy1/view) <br>
+A aplicação web pode ser acessada clicando [aqui](https://admin.echoeasy.com.br/) e acessado com credencial de administrador<br>
+Credenciais para Aluno - email: usuario@teste.com , senha: Teste@123<br>
+Credenciais para Administrador - email: georgemarsicano@unb.br , senha: Teste@123  <br>
+## 3. Equipe
 
 Nossa equipe de trabalho é composta pelos estudantes de Engenharia de Software da Universidade de Brasília presentes na Tabela 1.
 
